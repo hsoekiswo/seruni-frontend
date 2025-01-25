@@ -12,11 +12,11 @@ function Registration() {
   });
   const [users, setUsers] = useState({});
 
-  const handleChange = (e) => {
+  const handleChange = (e: { target: { name: string; value: string; }; }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     try {
       const response = await fetch(`${URL}/register`, {
@@ -39,7 +39,7 @@ function Registration() {
     }
   };
 
-  const handleUser = async(e) => {
+  const handleUser = async() => {
     try {
       const response = await fetch(`${URL}/register`, {
         method: 'GET',

@@ -7,11 +7,11 @@ function Login() {
       password: '',
     });
   
-    const handleChangeLogin = (e) => {
+    const handleChangeLogin = (e: { target: { name: string; value: string; }; }) => {
       setFormLogin({ ...formLogin, [e.target.name]: e.target.value });
     };
   
-    const handleLogin = async(e) => {
+    const handleLogin = async(e: { preventDefault: () => void; }) => {
       e.preventDefault();
       try {
         const response = await fetch(`${URL}/login`, {
@@ -40,9 +40,6 @@ function Login() {
     return (
       <>
         <div className='wrapper'>
-          <div>
-            <Registration/>
-          </div>
           <div>
             <h1>Login</h1>
             <form onSubmit={handleLogin}>
