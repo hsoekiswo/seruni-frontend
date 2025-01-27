@@ -1,18 +1,10 @@
 import './App.css';
-import Registration from './routes/Registration/Registration';
-import Login from './routes/Login/Login';
+import Home from './routes/Home/Home';
 
 function App() {
   return (
     <>
-      <div className='wrapper'>
-        <div>
-          <Registration/>
-        </div>
-        <div>
-          <Login/>
-        </div>
-      </div>
+      <Home />
     </>
   );
 }
