@@ -1,5 +1,9 @@
-export default function Preferences() {
-    return(
-        <h2>Preferences</h2>
+function MyAccount() {
+    return (
+      <>
+          <h1>My Account</h1>
+      </>
     );
-}
+  }
+  
+export default MyAccount;
