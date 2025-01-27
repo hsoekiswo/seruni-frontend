@@ -7,7 +7,7 @@ function Home() {
           <h1>Home</h1>
           <div>
             <h2>Hi, I'm Seruni</h2>
-            <img src="https://pustakalanalibrary.wordpress.com/wp-content/uploads/2024/07/img_7625.jpeg?w=768"></img>
+            <img src="https://pustakalanalibrary.wordpress.com/wp-content/uploads/2024/07/img_7625.jpeg?w=768" className="h-96"></img>
             <p>
                 I am holistic healing practitioner.
                 I used kinesiology approach through <a href="https://www.ikc.global/about-touch-for-health/" target="_blank">Touch For Health</a> and <a href="https://tirtausada.com/" target="_blank">Transformational Alchemy</a> method.
