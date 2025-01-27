@@ -10,8 +10,8 @@ function Home() {
             <img src="https://pustakalanalibrary.wordpress.com/wp-content/uploads/2024/07/img_7625.jpeg?w=768"></img>
             <p>
                 I am holistic healing practitioner.
-                I used kinesiology approach through <a href="https://www.ikc.global/about-touch-for-health/" >Touch For Health</a> and <a href="https://tirtausada.com/">Transformational Alchemy</a> method.
-                I also teach prenatal yoga at <a href="https://bumisehat.org/?lang=id">Bumi Sehat Bali</a>.
+                I used kinesiology approach through <a href="https://www.ikc.global/about-touch-for-health/" target="_blank">Touch For Health</a> and <a href="https://tirtausada.com/" target="_blank">Transformational Alchemy</a> method.
+                I also teach prenatal yoga at <a href="https://bumisehat.org/?lang=id" target="_blank">Bumi Sehat Bali</a>.
             </p>
           </div>
           <div>

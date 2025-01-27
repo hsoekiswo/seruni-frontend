@@ -2,9 +2,9 @@ import { NavLink } from "react-router";
 
 function Nav() {
     return (
-      <nav>
+      <nav> 
           <div>
-            <p>Logo</p>
+            <img src="../../../public/assets/images/logo.png" alt="Logo"></img>
           </div>
           <div>
             <ul>
