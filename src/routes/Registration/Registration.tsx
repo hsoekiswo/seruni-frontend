@@ -65,66 +65,96 @@ function Registration() {
 
   return (
     <>
-      <Title title="Registration" />
-      <div className='wrapper'>
-        <h1>Registration</h1>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor='username'>Username</label>
-          <input
-            type='text'
-            id='username'
-            name='username'
-            value={formData.username}
-            onChange={handleChange}
-            autoComplete='off' ></input>
-          <br></br>
-          <label htmlFor='password'>Password</label>
-          <input
-            type='password'
-            id='password'
-            name='password'
-            value={formData.password}
-            onChange={handleChange}
-            autoComplete='off'
-          ></input>
-          <br></br>
-          <label htmlFor='name'>Name</label>
-          <input
-            type='text'
-            id='name'
-            name='name'
-            value={formData.name}
-            onChange={handleChange}
-            autoComplete='off'
-          ></input>
-          <br></br>
-          <label htmlFor='email'>Email</label>
-          <input
-            type='text'
-            id='email'
-            name='email'
-            value={formData.email}
-            onChange={handleChange}
-            autoComplete='off'
-          ></input>
-          <br></br>
-          <label htmlFor='phone'>Phone</label>
-          <input
-            type='text'
-            id='phone'
-            name='phone'
-            value={formData.phone}
-            onChange={handleChange}
-            autoComplete='off'
-          ></input>
-          <br></br>
-          <button type='submit'>Register</button>
-        </form>
-        <div>
-          <h2>Users</h2>
-          <button type='submit' onClick={handleUser}>Generate User</button>
-          <p>{JSON.stringify(users)}</p>
+
+      <div className='min-h-screen flex items-center justify-center bg-gray-100'>
+        <div className='w-full max-w-md bg-white shadow-lg rounded-lg p-8'>
+          <h1 className='text-2xl font-medium text-left mb-6'>Registration</h1>
+
+          <form onSubmit={handleSubmit}>
+            <div className='mb-4'>
+              <label htmlFor='username' className='form-label'>
+                Username
+              </label>
+              <input
+                type='text'
+                id='username'
+                name='username'
+                value={formData.username}
+                onChange={handleChange}
+                autoComplete='off'
+                className='form-input'
+              >
+              </input>
+            </div>
+            <div className='mb-4'>
+              <label htmlFor='password' className='form-label'>
+                Password
+              </label>
+              <input
+                type='password'
+                id='password'
+                name='password'
+                value={formData.password}
+                onChange={handleChange}
+                autoComplete='off'
+                className='form-input'
+              ></input>
+            </div>
+            <div className='mb-4'>
+              <label htmlFor='name' className='form-label'>
+                Name
+              </label>
+              <input
+                type='text'
+                id='name'
+                name='name'
+                value={formData.name}
+                onChange={handleChange}
+                autoComplete='off'
+                className='form-input'
+              ></input>
+            </div>
+            <div className='mb-4'>
+              <label htmlFor='email' className='form-label'>
+                Email
+              </label>
+              <input
+                type='text'
+                id='email'
+                name='email'
+                value={formData.email}
+                onChange={handleChange}
+                autoComplete='off'
+                className='form-input'
+              ></input>
+            </div>
+            <div className='mb-4'>
+              <label htmlFor='phone' className='form-label'>
+                Phone
+              </label>
+              <input
+                type='text'
+                id='phone'
+                name='phone'
+                value={formData.phone}
+                onChange={handleChange}
+                autoComplete='off'
+              className='form-input'
+              ></input>
+            </div>
+            <button
+              type='submit'
+              className='w-full bg-gradient-to-r from-custom-yellow to-custom-yellow text-white font-medium py-2 rounded-lg hover:from-custom-yellow-1 hover:to-custom-yellow-2 transition-colors mt-4'
+            >
+              Register
+            </button>
+          </form>
         </div>
+      </div>
+      <div>
+        <h2>Users</h2>
+        <button type='submit' onClick={handleUser}>Generate User</button>
+        <p>{JSON.stringify(users)}</p>
       </div>
     </>
   );
