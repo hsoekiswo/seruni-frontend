@@ -25,10 +25,12 @@ function Home() {
             </div>
             <div className="flex flex-row">
                 <div className="m-4 py-8 px-20 border rounded-md w-2/3">
+                    {/* Title */}
                     <h1>Touch For Health - The Complete Edition</h1>
                     <br/>
                     <img src="https://devorss.com/cdn/shop/files/9780875169125_c039adc2-c6ee-4a20-86c1-4f35871552b9.jpg?v=1684360516&width=800" className=""></img>
                     <br/>
+                    {/* Description */}
                     <p>The Fundamental text of Energy Kinesiology for balancing muscles, posture, and “Chi” (Life Energy)</p>
                     <br/>
                     <p>This is a complete revision and expansion of the fundamental text of Energy Kinesiology.  Includes complete International Kinesiology College curriculum, plus Dr. Thie’s developments from 1990-2005. Integrates Metaphors of Muscles, Meridians and the Five Elements.</p>
@@ -39,7 +41,7 @@ function Home() {
                     <h2>How Really Listen to Your Body</h2>
                     <br/>
                     <p>Listening to your body using kinesiology and Touch for Health means paying attention to the small signs it gives you to stay healthy and balanced. This method focuses on how your muscles, energy, and emotions are all connected. By gently testing your muscles, you can find areas of stress or tension that might show something is off. Once you notice these signals, you can use simple techniques like pressing certain points, stretching, or deep breathing to help your body feel better. It’s all about trusting your body’s signals and taking small steps to stay healthy and in balance.</p>
-                    <br/>
+                    <br/> 
                     <hr/>
                 </div>
             </div>

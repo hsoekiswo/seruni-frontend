@@ -1,7 +1,13 @@
+import Nav from "../../components/Nav";
+import Title from "../../components/Title";
+import Item from "../../components/Item";
+
 function Store() {
   return (
     <>
-        <h1>Store</h1>
+        <Nav />
+        <Title title="Store" />
+        <Item />
     </>
   );
 }
