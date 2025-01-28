@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Title from '../../components/Title';
 
 function Registration() {
   const URL = 'https://seruni-backend-production.up.railway.app';
@@ -64,6 +65,7 @@ function Registration() {
 
   return (
     <>
+      <Title title="Registration" />
       <div className='wrapper'>
         <h1>Registration</h1>
         <form onSubmit={handleSubmit}>

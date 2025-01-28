@@ -2,7 +2,7 @@ import { NavLink } from "react-router";
 
 function Nav() {
     return (
-      <nav className="flex flex-row items-center"> 
+      <nav className="flex flex-row items-center border pb-3"> 
           <div className="w-1/3">
             <img src="../../../public/assets/images/logo.png" className="h-16 pl-4" alt="Logo"></img>
           </div>

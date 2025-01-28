@@ -1,7 +1,11 @@
+import Nav from "../../components/Nav";
+import Title from "../../components/Title";
+
 function MyAccount() {
     return (
       <>
-          <h1>My Account</h1>
+            <Nav />
+            <Title title="My Account" />
       </>
     );
   }
