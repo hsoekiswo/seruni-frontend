@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Title from '../../components/Title';
+import { BackNav } from '../../components/Nav'
 
 function Registration() {
   const URL = 'https://seruni-backend-production.up.railway.app';
@@ -65,7 +65,7 @@ function Registration() {
 
   return (
     <>
-
+      <BackNav />
       <div className='min-h-screen flex items-center justify-center bg-gray-100'>
         <div className='w-full max-w-md bg-white shadow-lg rounded-lg p-8'>
           <h1 className='text-2xl font-medium text-left mb-6'>Registration</h1>

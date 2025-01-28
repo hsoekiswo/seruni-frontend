@@ -1,10 +1,10 @@
-import Nav from "../../components/Nav";
+import { Nav } from "../../components/Nav";
 
 function Home() {
     return (
       <>
           <Nav />
-          <div className="px-20 mt-5">
+          <div className="pt-20 px-20 mt-5">
             <div className="m-4 p-10 border rounded-md flex flex-row">
                 <div className="m-4 py-2 px-10 w-3/4">
                     <h1>Hi, I'm Seruni</h1>
