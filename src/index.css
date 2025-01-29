@@ -59,6 +59,10 @@
   .form-input {
     @apply w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none;
   }
+  
+  .form-options {
+    @apply mt-1 block w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500;
+  }
 
   .form-button {
     @apply w-full bg-gradient-to-r from-custom-yellow to-custom-yellow text-white font-medium py-2 rounded-lg transition-colors mt-4;
