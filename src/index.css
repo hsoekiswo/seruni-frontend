@@ -40,11 +40,31 @@
   }
 }
 @layer components {
+  .form-background {
+    @apply min-h-screen flex items-center justify-center bg-gray-100;
+  }
+
+  .form-coontainer {
+    @apply w-full max-w-md bg-white shadow-lg rounded-lg p-8;
+  }
+
+  .form-title {
+    @apply text-2xl font-medium text-left mb-6;
+  }
+
   .form-label {
     @apply block text-sm font-medium text-gray-600;
   }
 
   .form-input {
     @apply w-full mt-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none;
+  }
+
+  .form-button {
+    @apply w-full bg-gradient-to-r from-custom-yellow to-custom-yellow text-white font-medium py-2 rounded-lg transition-colors mt-4;
+  }
+
+  .form-button:hover {
+    @apply hover:from-custom-yellow hover:to-custom-yellow-2;
   }
 }

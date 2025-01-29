@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { BackNav } from '../../components/Nav';
 
 function Login() {
     const URL = 'https://seruni-backend-production.up.railway.app';
@@ -39,34 +40,43 @@ function Login() {
   
     return (
       <>
-        <div className='wrapper'>
-          <div>
-            <h1>Login</h1>
+        <BackNav />
+        <div className='form-background'>
+          <div className='form-container'>
+            <h1 className='form-title'>Login</h1>
+
             <form onSubmit={handleLogin}>
-            <label htmlFor='username'>Username</label>
-            <input
-              type='text'
-              id='username'
-              name='username'
-              value={formLogin.username}
-              onChange={handleChangeLogin}
-              autoComplete='off' ></input>
-            <br></br>
-            <label htmlFor='password'>Password</label>
-            <input
-              type='password'
-              id='password'
-              name='password'
-              value={formLogin.password}
-              onChange={handleChangeLogin}
-              autoComplete='off'
-            ></input>
-            <button type='submit'>Login</button>
+              <div className='mb-4'>
+                <label htmlFor='username' className='form-label'>Username</label>
+                <input
+                  type='text'
+                  id='username'
+                  name='username'
+                  value={formLogin.username}
+                  onChange={handleChangeLogin}
+                  autoComplete='off'
+                  className='form-input'
+                >  
+                </input>
+              </div>
+              <div className='mb-4'>
+                <label htmlFor='password' className='form-label'>Password</label>
+                <input
+                  type='password'
+                  id='password'
+                  name='password'
+                  value={formLogin.password}
+                  onChange={handleChangeLogin}
+                  autoComplete='off'
+                className='form-input'
+                ></input>
+              </div>
+              <button
+                type='submit'
+                className='form-button'>
+                Login
+              </button>
             </form>
-          </div>
-          <div>
-            <h2>Dashboard Access</h2>
-            <button>Go to the dashboard</button>
           </div>
         </div>
       </>

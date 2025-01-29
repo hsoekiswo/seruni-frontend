@@ -66,9 +66,9 @@ function Registration() {
   return (
     <>
       <BackNav />
-      <div className='min-h-screen flex items-center justify-center bg-gray-100'>
-        <div className='w-full max-w-md bg-white shadow-lg rounded-lg p-8'>
-          <h1 className='text-2xl font-medium text-left mb-6'>Registration</h1>
+      <div className='form-background'>
+        <div className='form-container'>
+          <h1 className='form-title'>Registration</h1>
 
           <form onSubmit={handleSubmit}>
             <div className='mb-4'>
@@ -144,7 +144,7 @@ function Registration() {
             </div>
             <button
               type='submit'
-              className='w-full bg-gradient-to-r from-custom-yellow to-custom-yellow text-white font-medium py-2 rounded-lg hover:from-custom-yellow-1 hover:to-custom-yellow-2 transition-colors mt-4'
+              className='form-button'
             >
               Register
             </button>
