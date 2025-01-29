@@ -4,7 +4,7 @@ export function Nav() {
     return (
       <nav className="flex flex-row items-center justify-center border pb-3 fixed top-0 left-0 w-full bg-white opacity-90"> 
           <div className="w-1/3">
-            <img src="../../../public/assets/images/logo.png" className="h-16 pl-4" alt="Logo"></img>
+            <img src="/assets/images/logo.png" className="h-16 pl-4" alt="Logo"></img>
           </div>
           <div className="w-1/3">
             <ul className="flex flex-row justify-between p-2 w-full">
