@@ -5,7 +5,9 @@ function Blog() {
     return (
         <>
             <Nav />
-            <Title title="Blog" />
+            <div className="pt-20">
+                <Title title="Blog" />
+            </div>
         </>
     );
 }
