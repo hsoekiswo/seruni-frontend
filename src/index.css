@@ -89,7 +89,7 @@
   }
 
   .item-img {
-    @apply p-4 max-w-full min-w-[80%];
+    @apply p-4 max-w-[80%] min-w-[60%];
   }
 
   .item-title-container {
