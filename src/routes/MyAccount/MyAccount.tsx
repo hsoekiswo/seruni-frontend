@@ -5,7 +5,9 @@ function MyAccount() {
     return (
       <>
             <Nav />
-            <Title title="My Account" />
+            <div className="pt-20">
+                <Title title="My Account" />
+            </div>
       </>
     );
   }
