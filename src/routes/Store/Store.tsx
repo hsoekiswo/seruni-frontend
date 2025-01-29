@@ -1,6 +1,7 @@
 import { Nav } from "../../components/Nav";
+import { Link } from "react-router";
 import Title from "../../components/Title";
-import Item from "../../components/Item";
+import ItemList from "../../components/Item";
 
 function Store() {
   return (
@@ -8,7 +9,9 @@ function Store() {
         <Nav />
         <div className="pt-20">
             <Title title="Store" />
-            <Item />
+            <Link to="/product">
+              <ItemList />
+            </Link>
         </div>
     </>
   );

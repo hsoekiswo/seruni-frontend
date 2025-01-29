@@ -44,7 +44,7 @@
     @apply min-h-screen flex items-center justify-center bg-gray-100;
   }
 
-  .form-coontainer {
+  .form-container {
     @apply w-full max-w-md bg-white shadow-lg rounded-lg p-8;
   }
 
@@ -66,5 +66,29 @@
 
   .form-button:hover {
     @apply hover:from-custom-yellow hover:to-custom-yellow-2;
+  }
+
+  .generic-container {
+    @apply w-screen h-screen px-10 flex items-start justify-center;
+  }
+
+  .item-container-size {
+    @apply w-1/2 h-2/3;
+  }
+
+  .item-container {
+    @apply h-full my-10 mx-6 border-2 rounded-lg;
+  }
+
+  .item-img-container {
+    @apply px-8 py-4 h-4/5 flex items-center justify-center;
+  }
+
+  .item-img {
+    @apply p-4 max-w-full min-w-[80%];
+  }
+
+  .item-title-container {
+    @apply p-4 h-1/5 text-center;
   }
 }
