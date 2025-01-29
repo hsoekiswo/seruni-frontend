@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import Title from "../../components/Title";
 import { Nav } from "../../components/Nav";
 
@@ -6,6 +7,21 @@ const name = "Touch For Health - The Complete Edition";
 const price = "Rp 300.000"
 
 function Product() {
+    function getCookie(name) {
+      const cookies = document.cookie.split("; ");
+      for (const cookie of cookies) {
+        const [key, value] = cookie.split("=");
+        if (key === name) return value;
+      };
+      return null;
+    };
+
+    const token = getCookie("token");
+
+    const handleClick = () => {
+      console.log(token);
+    }
+
     return (
       <>
         <Nav />
@@ -20,7 +36,19 @@ function Product() {
               <br/>
               <h3>{price}</h3>
               <br/>
-              <button className="form-button rounded-full">Register / Login to Buy</button>
+              {token ? (
+                <Link
+                  to="/checkout"
+                >
+                  <button className="form-button rounded-full" onClick={handleClick}>Register / Login to Buy</button>
+                </Link>
+              ) : (
+                <Link
+                  to="/registration"
+                >
+                  <button className="form-button rounded-full" onClick={handleClick}>Register / Login to Buy</button>
+                </Link>
+              )}
               <br/>
               <br/>
               <b>
