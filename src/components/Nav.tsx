@@ -55,7 +55,7 @@ export function BackNav() {
     <nav className="flex flex-row items-center justify-center border pb-3 fixed top-0 left-0 w-full bg-white opacity-90"> 
       <NavLink to="/" end>
         <div>
-          <img src="../../../public/assets/images/logo.png" className="h-16 pl-4" alt="Logo"></img>
+          <img src="/assets/images/logo.png" className="h-16 pl-4" alt="Logo"></img>
         </div>
       </NavLink>
     </nav>
