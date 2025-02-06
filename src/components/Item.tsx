@@ -9,12 +9,14 @@
 //     }
 // ]
 import { useEffect, useState } from "react";
+import { useProduct } from "../context/ProductContext";
+import { useNavigate } from "react-router";
 
 const URL = 'https://seruni-backend-production.up.railway.app'
 
-function Item({ name, image }) {
+function Item({ id, name, image, onClick }) {
     return (
-        <div className="item-container-size">
+        <div className="item-container-size" key={id} onClick={onClick}>
             <div className="item-container">
                 <div className="item-img-container">
                     <img src={image} className="item-img"></img>
@@ -30,32 +32,38 @@ function Item({ name, image }) {
 function ItemList() {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
+    const { setSelectedProductId } = useProduct();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchItems = async () => {
             try {
                 const response = await fetch(`${URL}/products`);
                 const data = await response.json();
-                console.log(data);
                 setItems(data);
             } catch (error) {
                 console.error("Error", error);
-                alert('There was an error during retrieving product.');
+                alert('There was an error during retrieving products.');
             } finally {
                 setLoading(false);
             }
         };
 
         fetchItems();
-    }, []);
+    }, [URL]);
 
     if (loading) return <p>Loading...</p>
+
+    const handleSelectProduct = (id) => {
+        setSelectedProductId(id);
+        navigate(`/product/${id}`);
+    }
 
     return (
         <div className="generic-container">
             {
                 items.map((item) => (
-                    <Item name={item.name} image={item.image} />
+                    <Item id={item.id} name={item.name} image={item.image} onClick={() => handleSelectProduct(item.id)} />
                 ))
             }
         </div>
