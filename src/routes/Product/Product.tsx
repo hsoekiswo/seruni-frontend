@@ -10,13 +10,20 @@ import { useProduct } from "../../context/ProductContext";
 
 const URL = 'https://seruni-backend-production.up.railway.app';
 
+interface ProductType {
+  name: string;
+  image: string;
+  price: number;
+  description: string;
+}
+
 function Product() {
     const { selectedProductId } = useProduct();
-    const [data, setData] = useState({
-      name: [],
-      image: [],
-      price: [],
-      description: [],
+    const [data, setData] = useState<ProductType>({
+      name: '',
+      image: '',
+      price: 0,
+      description: '',
     });
 
     useEffect(() => {
@@ -58,7 +65,7 @@ function Product() {
           <Title title='Store' />
           <div className="generic-container">
             <div className="w-1/2">
-              <img src={data.image} className="item-img py-16 pl-16 pr-8"></img>
+              <img src={data.image} alt="Product Image" className="item-img py-16 pl-16 pr-8"></img>
             </div>
             <div className="w-1/2 py-16 pr-16 pl-8">
               <h2>{data.name}</h2>
