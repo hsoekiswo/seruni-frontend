@@ -33,7 +33,6 @@ function MyAccount() {
                   </div>
                 </div>
             </div>
-
       </>
     );
   }
