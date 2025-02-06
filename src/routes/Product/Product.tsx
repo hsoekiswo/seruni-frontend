@@ -40,7 +40,7 @@ function Product() {
       };
 
       fetchItem();
-    });
+    }, [selectedProductId]);
 
 
     function getCookie(name) {
