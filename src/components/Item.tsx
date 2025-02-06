@@ -10,16 +10,23 @@
 // ]
 import { useEffect, useState } from "react";
 import { useProduct } from "../context/ProductContext";
-import { useNavigate } from "react-router";
+import { NavLink } from "react-router";
 
 const URL = 'https://seruni-backend-production.up.railway.app'
 
-function Item({ id, name, image, onClick }) {
+interface ItemProps {
+    id: string;
+    name: string;
+    image: string;
+    onClick: () => void;
+}
+
+function Item({ id, name, image, onClick }: ItemProps) {
     return (
-        <div className="item-container-size" key={id} onClick={onClick}>
+        <div className="item" key={id} onClick={onClick}>
             <div className="item-container">
                 <div className="item-img-container">
-                    <img src={image} className="item-img"></img>
+                    <img src={image} alt={name} className="item-img"></img>
                 </div>
                 <div className="item-title-container">
                     <h3>{name}</h3>
@@ -30,10 +37,10 @@ function Item({ id, name, image, onClick }) {
 }
 
 function ItemList() {
-    const [items, setItems] = useState([]);
+    const [items, setItems] = useState<Array<{id: string; name: string; image: string}>>([]);
     const [loading, setLoading] = useState(true);
     const { setSelectedProductId } = useProduct();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     useEffect(() => {
         const fetchItems = async () => {
@@ -50,20 +57,23 @@ function ItemList() {
         };
 
         fetchItems();
-    }, [URL]);
+    }, [setItems]);
 
     if (loading) return <p>Loading...</p>
-
-    const handleSelectProduct = (id) => {
-        setSelectedProductId(id);
-        navigate(`/product/${id}`);
-    }
 
     return (
         <div className="generic-container">
             {
                 items.map((item) => (
-                    <Item id={item.id} name={item.name} image={item.image} onClick={() => handleSelectProduct(item.id)} />
+                    <NavLink to={`/product/${item.id}`} end>
+                    <Item
+                        id={item.id}
+                        name={item.name}
+                        image={item.image}
+                        onClick={() => {
+                            setSelectedProductId(item.id);
+                        }} />
+                    </NavLink>
                 ))
             }
         </div>

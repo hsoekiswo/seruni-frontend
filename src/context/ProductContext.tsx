@@ -1,8 +1,17 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, ReactNode } from "react";
 
-const ProductContext = createContext(null);
+interface ProductContextType {
+    selectedProductId: string | null;
+    setSelectedProductId: (id: string | null) => void;
+}
 
-export const ProductProvider = ({ children }) => {
+const ProductContext = createContext<ProductContextType | undefined>(undefined);
+
+interface ProductProviderProps {
+    children: ReactNode;
+  }
+
+export const ProductProvider = ({ children }: ProductProviderProps) => {
     const [selectedProductId, setSelectedProductId] = useState(null);
 
     return (
@@ -12,4 +21,10 @@ export const ProductProvider = ({ children }) => {
     );
 };
 
-export const useProduct = () => useContext(ProductContext);
+export const useProduct = () => {
+    const context = useContext(ProductContext);
+    if (context === undefined) {
+        throw new Error('useProduct must be used within a ProductProvider');
+    }
+    return context;
+};
