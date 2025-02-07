@@ -93,11 +93,11 @@
   }
 
   .item-img-potrait {
-    @apply max-h-[100%] min-h-[80%];
+    @apply max-h-[100%] min-h-[100%];
   }
 
   .item-img-landscape {
-    @apply  max-w-[80%] min-w-[80%];
+    @apply max-w-[80%] min-w-[80%];
   }
 
   .item-title-container {
