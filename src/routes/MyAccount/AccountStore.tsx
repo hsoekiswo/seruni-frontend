@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { useProduct } from "../../context/ProductContext";
+// import { useProduct } from "../../context/ProductContext";
 import { fetchItems } from "../../services/productService";
+import { handleImageLoad } from "../../utils/handleImageLoad";
 
 function ItemRow() {
   interface ItemProps {
@@ -11,6 +12,7 @@ function ItemRow() {
   }
 
   const [items, setItems] = useState<ItemProps[]>([]);
+  const [aspectClass, setAspectClass] = useState("");
   // const [loading, setLoading] = useState(true);
   // const { setSelectedProductId } = useProduct();
 
@@ -38,11 +40,16 @@ function ItemRow() {
                 {item.id}
               </td>
               <td>
-                <div className="flex justify-center items-start">
-                  <div className="p-2 m-2">
-                    <img src={item.image} className="w-16"></img>
+                <div className="flex justify-center items-center">
+                  <div className="flex justify-center items-center p-2 m-2 w-64 h-32">
+                    <img
+                      src={item.image}
+                      onLoad={(event) => handleImageLoad(event, setAspectClass)}
+                      className={`${aspectClass}`}
+                    > 
+                    </img>
                   </div>
-                  <div className="p-2 m-2">
+                  <div className="p-2 m-2 w-full">
                     {item.name}
                   </div>
                 </div>
@@ -74,6 +81,11 @@ function ItemRow() {
 function AccountStore() {
   return (
     <div className="h-svh">
+        <div  className="px-4 py-2">
+          <button className="w-full bg-custom-orange-3 text-white font-bold p-2 rounded-lg">
+            Add New Item
+          </button>
+        </div>
         <div className="px-4 py-2">
           Filter
           <form>
@@ -92,14 +104,14 @@ function AccountStore() {
             </div>
           </form>
         </div>
-        <div className="overflow-scroll">
+        <div className="overflow-scroll h-fit">
           <table className="border w-full">
             <thead className="bg-slate-500 text-white">
               <tr>
-                <th className="py-2">ID</th>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Action</th>
+                <th className="py-2 w-1/6">ID</th>
+                <th className="py-2 w-2/6">Product</th>
+                <th className="py-2 w-1/6">Price</th>
+                <th className="py-2 w-1/6">Action</th>
               </tr>
             </thead>
             <tbody className="text-center">

@@ -11,7 +11,8 @@ function Registration() {
     email: '',
     phone: '',
   });
-  const [users, setUsers] = useState({});
+
+  // const [users, setUsers] = useState({});
 
   const handleChange = (e: { target: { name: string; value: string; }; }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -40,28 +41,28 @@ function Registration() {
     }
   };
 
-  const handleUser = async() => {
-    try {
-      const response = await fetch(`${URL}/register`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+  // const handleUser = async() => {
+  //   try {
+  //     const response = await fetch(`${URL}/register`, {
+  //       method: 'GET',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //     });
 
-      const data = response.status === 204 ? null : await response.json();
-      console.log('Response from backend:', data);
+  //     const data = response.status === 204 ? null : await response.json();
+  //     console.log('Response from backend:', data);
 
-      if (response.ok) {
-        setUsers(data);
-      } else {
-        alert('Error get users!');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('There was an error submitting the form.');
-    }
-  }
+  //     if (response.ok) {
+  //       setUsers(data);
+  //     } else {
+  //       alert('Error get users!');
+  //     }
+  //   } catch (error) {
+  //     console.error('Error:', error);
+  //     alert('There was an error submitting the form.');
+  //   }
+  // }
 
   return (
     <>

@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { useProduct } from "../context/ProductContext";
 import { NavLink } from "react-router";
 import { fetchItems } from "../services/productService";
-
-const URL = 'https://seruni-backend-production.up.railway.app'
+import { handleImageLoad } from "../utils/handleImageLoad";
 
 interface ItemProps {
     id: string;
@@ -16,20 +15,11 @@ interface ItemProps {
 function Item({ id, name, image, price, onClick }: ItemProps) {
     const [aspectClass, setAspectClass] = useState("");
 
-    const handleImageLoad = (event: React.SyntheticEvent<HTMLImageElement>) => {
-        const img = event.currentTarget;
-        if (img.naturalWidth > img.naturalHeight) {
-            setAspectClass("item-img-landscape");
-        } else {
-            setAspectClass("item-img-potrait");
-        }
-    }
-
     return (
         <div className="item item-container-size" key={id} onClick={onClick}>
             <div className="item-container">
                 <div className="item-img-container">
-                    <img src={image} alt={name} onLoad={handleImageLoad} className={`item-img ${aspectClass}`}></img>
+                    <img src={image} alt={name} onLoad={(event) =>  handleImageLoad(event, setAspectClass)} className={`item-img ${aspectClass}`}></img>
                 </div>
                 <div className="h-1/5 flex flex-col items-stretch">
                     <div className="item-title-container">
@@ -60,7 +50,7 @@ function ItemList() {
                 setLoading(false);
             }
         }
-        
+
         getItems();
     }, [setItems]);
 
