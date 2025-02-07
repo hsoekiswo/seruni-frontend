@@ -63,7 +63,7 @@ function Product() {
         <Nav />
         <div className="pt-20">
           <Title title='Store' />
-          <div className="generic-container">
+          <div className="product-generic-container">
             <div className="w-1/2">
               <img src={data.image} alt="Product Image" className="item-img py-16 pl-16 pr-8"></img>
             </div>

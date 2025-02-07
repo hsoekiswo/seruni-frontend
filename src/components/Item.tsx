@@ -18,18 +18,35 @@ interface ItemProps {
     id: string;
     name: string;
     image: string;
+    price: number;
     onClick: () => void;
 }
 
-function Item({ id, name, image, onClick }: ItemProps) {
+function Item({ id, name, image, price, onClick }: ItemProps) {
+    const [aspectClass, setAspectClass] = useState("");
+
+    const handleImageLoad = (event: React.SyntheticEvent<HTMLImageElement>) => {
+        const img = event.currentTarget;
+        if (img.naturalWidth > img.naturalHeight) {
+            setAspectClass("item-img-landscape");
+        } else {
+            setAspectClass("item-img-potrait");
+        }
+    }
+
     return (
-        <div className="item" key={id} onClick={onClick}>
+        <div className="item item-container-size" key={id} onClick={onClick}>
             <div className="item-container">
                 <div className="item-img-container">
-                    <img src={image} alt={name} className="item-img"></img>
+                    <img src={image} alt={name} onLoad={handleImageLoad} className={`item-img ${aspectClass}`}></img>
                 </div>
-                <div className="item-title-container">
-                    <h3>{name}</h3>
+                <div className="h-1/5 flex flex-col items-stretch">
+                    <div className="item-title-container">
+                        <h3>{name}</h3>
+                    </div>
+                    <div className="item-price-container">
+                        <h3>{`Rp ${price.toLocaleString("id-ID")}`}</h3>
+                    </div>
                 </div>
             </div>
         </div>
@@ -40,7 +57,6 @@ function ItemList() {
     const [items, setItems] = useState<Array<{id: string; name: string; image: string}>>([]);
     const [loading, setLoading] = useState(true);
     const { setSelectedProductId } = useProduct();
-    // const navigate = useNavigate();
 
     useEffect(() => {
         const fetchItems = async () => {
@@ -62,7 +78,7 @@ function ItemList() {
     if (loading) return <p>Loading...</p>
 
     return (
-        <div className="generic-container">
+        <div className="item-generic-container">
             {
                 items.map((item) => (
                     <NavLink to={`/product/${item.id}`} end>
@@ -70,6 +86,7 @@ function ItemList() {
                         id={item.id}
                         name={item.name}
                         image={item.image}
+                        price={item.price}
                         onClick={() => {
                             setSelectedProductId(item.id);
                         }} />
