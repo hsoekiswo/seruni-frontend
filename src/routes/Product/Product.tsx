@@ -4,10 +4,6 @@ import { Nav } from "../../components/Nav";
 import { useState, useEffect } from "react";
 import { useProduct } from "../../context/ProductContext";
 
-// const image = "https://devorss.com/cdn/shop/files/9780875169125_c039adc2-c6ee-4a20-86c1-4f35871552b9.jpg?v=1684360516&width=800";
-// const name = "Touch For Health - The Complete Edition";
-// const price = "Rp 300.000"
-
 const URL = 'https://seruni-backend-production.up.railway.app';
 
 interface ProductType {

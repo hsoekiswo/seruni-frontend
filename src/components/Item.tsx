@@ -1,16 +1,7 @@
-// const items = [
-//     {
-//         name: "Touch For Health - The Complete Edition",
-//         image: "https://devorss.com/cdn/shop/files/9780875169125_c039adc2-c6ee-4a20-86c1-4f35871552b9.jpg?v=1684360516&width=800",
-//     },
-//     {
-//         name: "Touch for Health Handy Assessment Chart",
-//         image: "https://devorss.com/cdn/shop/products/300_11x17-Handy-Assessment-Chart-proof-1.jpg?v=1659989315&width=300",
-//     }
-// ]
 import { useEffect, useState } from "react";
 import { useProduct } from "../context/ProductContext";
 import { NavLink } from "react-router";
+import { fetchItems } from "../services/productService";
 
 const URL = 'https://seruni-backend-production.up.railway.app'
 
@@ -54,25 +45,23 @@ function Item({ id, name, image, price, onClick }: ItemProps) {
 }
 
 function ItemList() {
-    const [items, setItems] = useState<Array<{id: string; name: string; image: string}>>([]);
+    const [items, setItems] = useState<Pick<ItemProps, "id" | "name" | "image">[]>([]);
     const [loading, setLoading] = useState(true);
     const { setSelectedProductId } = useProduct();
 
     useEffect(() => {
-        const fetchItems = async () => {
+        const getItems = async () => {
             try {
-                const response = await fetch(`${URL}/products`);
-                const data = await response.json();
+                const data = await fetchItems();
                 setItems(data);
-            } catch (error) {
-                console.error("Error", error);
-                alert('There was an error during retrieving products.');
+            } catch {
+                alert("There was an error retrieving items");
             } finally {
                 setLoading(false);
             }
-        };
-
-        fetchItems();
+        }
+        
+        getItems();
     }, [setItems]);
 
     if (loading) return <p>Loading...</p>
