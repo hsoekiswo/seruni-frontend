@@ -18,8 +18,8 @@ function Item({ id, name, image, price, onClick }: ItemProps) {
     return (
         <div className="item item-container-size" key={id} onClick={onClick}>
             <div className="item-container">
-                <div className="item-img-container">
-                    <img src={image} alt={name} onLoad={(event) =>  handleImageLoad(event, setAspectClass)} className={`item-img ${aspectClass}`}></img>
+                <div className="item-img-container overflow-hidden bg-gray-200">
+                    <img src={image} alt={name} onLoad={(event) =>  handleImageLoad(event, setAspectClass)} className={`item-img ${aspectClass} h-max object-scale-down`}></img>
                 </div>
                 <div className="h-1/5 flex flex-col items-stretch">
                     <div className="item-title-container">
