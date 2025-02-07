@@ -8,7 +8,7 @@ function MyAccount() {
             <Nav />
             <div className="pt-20">
                 <Title title="My Account" />
-                <div className="generic-container">
+                <div className="account-generic-container">
                   <div className="w-3/4 h-1/4 border m-10 rounded-lg">
                     <div className="border-b-2">
                       <ul className="flex flex-row justify-around py-3">

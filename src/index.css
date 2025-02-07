@@ -111,4 +111,8 @@
   .product-generic-container {
     @apply w-screen h-screen px-10 flex;
   }
+
+  .account-generic-container {
+    @apply w-screen h-screen px-10 flex justify-center;
+  }
 }
