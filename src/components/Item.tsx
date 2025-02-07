@@ -35,7 +35,7 @@ function Item({ id, name, image, price, onClick }: ItemProps) {
 }
 
 function ItemList() {
-    const [items, setItems] = useState<Pick<ItemProps, "id" | "name" | "image">[]>([]);
+    const [items, setItems] = useState<Pick<ItemProps, "id" | "name" | "image" | "price">[]>([]);
     const [loading, setLoading] = useState(true);
     const { setSelectedProductId } = useProduct();
 
