@@ -67,7 +67,7 @@ function Registration() {
     <>
       <BackNav />
       <div className='form-background'>
-        <div className='form-container'>
+        <div className='form-container mt-10'>
           <h1 className='form-title'>Registration</h1>
 
           <form onSubmit={handleSubmit}>
@@ -150,11 +150,6 @@ function Registration() {
             </button>
           </form>
         </div>
-      </div>
-      <div>
-        <h2>Users</h2>
-        <button type='submit' onClick={handleUser}>Generate User</button>
-        <p>{JSON.stringify(users)}</p>
       </div>
     </>
   );
