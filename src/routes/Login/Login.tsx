@@ -1,16 +1,13 @@
 import { useState } from 'react'
+import { handleChange } from '../../utils/form';
 import { BackNav } from '../../components/Nav';
 
 function Login() {
     const URL = 'https://seruni-backend-production.up.railway.app';
-    const [formLogin, setFormLogin] = useState({
+    const [formData, setFormData] = useState({
       username: '',
       password: '',
     });
-  
-    const handleChangeLogin = (e: { target: { name: string; value: string; }; }) => {
-      setFormLogin({ ...formLogin, [e.target.name]: e.target.value });
-    };
   
     const handleLogin = async(e: { preventDefault: () => void; }) => {
       e.preventDefault();
@@ -20,7 +17,7 @@ function Login() {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(formLogin),
+          body: JSON.stringify(formData),
         });
   
         const token = response.status === 204 ? null : await response.json();
@@ -52,8 +49,8 @@ function Login() {
                   type='text'
                   id='username'
                   name='username'
-                  value={formLogin.username}
-                  onChange={handleChangeLogin}
+                  value={formData.username}
+                  onChange={(e) => {handleChange(e, setFormData, formData)}}
                   autoComplete='off'
                   className='form-input'
                 >  
@@ -65,8 +62,8 @@ function Login() {
                   type='password'
                   id='password'
                   name='password'
-                  value={formLogin.password}
-                  onChange={handleChangeLogin}
+                  value={formData.password}
+                  onChange={(e) => {handleChange(e, setFormData, formData)}}
                   autoComplete='off'
                 className='form-input'
                 ></input>

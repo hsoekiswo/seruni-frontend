@@ -1,5 +1,6 @@
-import { useState } from 'react'
-import { BackNav } from '../../components/Nav'
+import { useState } from 'react';
+import { handleChange } from '../../utils/form';
+import { BackNav } from '../../components/Nav';
 
 function Registration() {
   const URL = 'https://seruni-backend-production.up.railway.app';
@@ -11,10 +12,6 @@ function Registration() {
     email: '',
     phone: '',
   });
-
-  const handleChange = (e: { target: { name: string; value: string; }; }) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
 
   const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
@@ -55,7 +52,7 @@ function Registration() {
                 id='username'
                 name='username'
                 value={formData.username}
-                onChange={handleChange}
+                onChange={(e) => handleChange(e, setFormData, formData)}
                 autoComplete='off'
                 className='form-input'
               >
@@ -70,7 +67,7 @@ function Registration() {
                 id='password'
                 name='password'
                 value={formData.password}
-                onChange={handleChange}
+                onChange={(e) => handleChange(e, setFormData, formData)}
                 autoComplete='off'
                 className='form-input'
               ></input>
@@ -84,7 +81,7 @@ function Registration() {
                 id='name'
                 name='name'
                 value={formData.name}
-                onChange={handleChange}
+                onChange={(e) => handleChange(e, setFormData, formData)}
                 autoComplete='off'
                 className='form-input'
               ></input>
@@ -98,7 +95,7 @@ function Registration() {
                 id='email'
                 name='email'
                 value={formData.email}
-                onChange={handleChange}
+                onChange={(e) => handleChange(e, setFormData, formData)}
                 autoComplete='off'
                 className='form-input'
               ></input>
@@ -112,7 +109,7 @@ function Registration() {
                 id='phone'
                 name='phone'
                 value={formData.phone}
-                onChange={handleChange}
+                onChange={(e) => handleChange(e, setFormData, formData)}
                 autoComplete='off'
               className='form-input'
               ></input>
