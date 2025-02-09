@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ProductType } from "../../schema";
 import ProductForm from "../../components/ProductForm";
 import { handleSubmit } from "../../utils/form";
+import { BackNav } from "../../components/Nav";
 
 
 function InputProduct() {
@@ -25,6 +26,7 @@ function InputProduct() {
 
     return (
         <>
+            <BackNav />
             <h1>New Product</h1>
             <ProductForm
                 formData={formData}

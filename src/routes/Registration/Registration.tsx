@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { handleChange, handleSubmit } from '../../utils/form';
-import { BackNav } from '../../components/Nav';
+import { HomeNav } from '../../components/Nav';
 
 function Registration() {
   const path = '/register'
@@ -24,7 +24,7 @@ function Registration() {
   
   return (
     <>
-      <BackNav />
+      <HomeNav />
       <div className='form-background'>
         <div className='form-container mt-10'>
           <h1 className='form-title'>Registration</h1>
