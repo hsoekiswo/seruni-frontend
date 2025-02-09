@@ -4,6 +4,8 @@ import { handleSubmit } from "../../utils/form";
 import { useProduct } from "../../context/ProductContext";
 import { ProductType } from "../../schema";
 import ProductForm from "../../components/ProductForm";
+import { BackNav } from "../../components/Nav";
+import Title from "../../components/Title";
 
 function EditProduct() {
     const { selectedProductId } = useProduct();
@@ -42,12 +44,19 @@ function EditProduct() {
 
     return (
         <>
-            <h1>Edit Product</h1>
-            <ProductForm
-                formData={formData}
-                setFormData={setFormData}
-                onSubmit={(e) => handleSubmit(e, URL, params)}
-            />
+            <BackNav />
+            <div className="pt-20">
+                <Title title="Edit Product"/>
+                <div className="account-generic-container">
+                    <div className="w-3/4 min-h-32 min-h-1/5 max-h-fit border m-10 p-6 rounded-lg">
+                        <ProductForm
+                            formData={formData}
+                            setFormData={setFormData}
+                            onSubmit={(e) => handleSubmit(e, URL, params)}
+                        />
+                    </div>
+                </div>
+            </div>
         </>
     )
 }
