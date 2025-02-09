@@ -15,6 +15,7 @@ import Purchases from './routes/MyAccount/Purchases.tsx';
 import AccountStore from './routes/MyAccount/AccountStore.tsx';
 import DetailedAccount from './routes/MyAccount/DetailedAccount.tsx';
 import EditProduct from './routes/Product/EditProduct.tsx';
+import InputProduct from './routes/Product/InputProduct.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -25,6 +26,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/registration" element={<Registration />} />
           <Route path="/login" element={<Login />} />
           <Route path="/store" element={<Store />} />
+          <Route path='/product/new' element={<InputProduct />} />
           <Route path="/product/edit/:id" element={<EditProduct />} />
           <Route path="/product/:id" element={<Product />} />
           <Route path="/checkout" element={<Checkout />} />

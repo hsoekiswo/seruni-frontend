@@ -90,9 +90,11 @@ function AccountStore() {
   return (
     <div className="h-svh">
         <div  className="px-4 py-2">
-          <button className="w-full bg-custom-orange-3 text-white font-bold p-2 rounded-lg">
-            Add New Item
-          </button>
+          <NavLink to={'/product/new'} end>
+            <button className="w-full bg-custom-orange-3 text-white font-bold p-2 rounded-lg">
+              Add New Item
+            </button>
+          </NavLink>
         </div>
         <div className="px-4 py-2">
           Filter
