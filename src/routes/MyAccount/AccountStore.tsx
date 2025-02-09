@@ -3,14 +3,14 @@ import { useEffect, useState } from "react";
 import { fetchItems } from "../../services/productService";
 import { handleImageLoad } from "../../utils/handleImageLoad";
 
-function ItemRow() {
-  interface ItemProps {
-    id: string;
-    name: string;
-    image: string;
-    price: number;
-  }
+interface ItemProps {
+  id: string;
+  name: string;
+  image: string;
+  price: number;
+}
 
+function ItemRow() {
   const [items, setItems] = useState<ItemProps[]>([]);
   const [aspectClass, setAspectClass] = useState("");
   // const [loading, setLoading] = useState(true);
@@ -22,7 +22,7 @@ function ItemRow() {
         const data = await fetchItems();
         setItems(data);
       } catch {
-        alert("There was an error retrieving items")
+        alert("There was an error retrieving items");
       } finally {
         // setLoading(false);
       }
