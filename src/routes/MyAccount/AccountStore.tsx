@@ -1,20 +1,21 @@
 import { useEffect, useState } from "react";
-// import { useProduct } from "../../context/ProductContext";
+import { NavLink } from "react-router";
+import { useProduct } from "../../context/ProductContext";
 import { fetchItems } from "../../services/productService";
 import { handleImageLoad } from "../../utils/handleImageLoad";
 
-function ItemRow() {
-  interface ItemProps {
-    id: string;
-    name: string;
-    image: string;
-    price: number;
-  }
+interface ItemProps {
+  id: string;
+  name: string;
+  image: string;
+  price: number;
+}
 
+function ItemRow() {
   const [items, setItems] = useState<ItemProps[]>([]);
   const [aspectClass, setAspectClass] = useState("");
   // const [loading, setLoading] = useState(true);
-  // const { setSelectedProductId } = useProduct();
+  const { setSelectedProductId } = useProduct();
 
   useEffect(() => {
     const getItems = async() => {
@@ -22,7 +23,7 @@ function ItemRow() {
         const data = await fetchItems();
         setItems(data);
       } catch {
-        alert("There was an error retrieving items")
+        alert("There was an error retrieving items");
       } finally {
         // setLoading(false);
       }
@@ -60,9 +61,16 @@ function ItemRow() {
               <td>
                 <div className="flex justify-around">
                   <div>
-                    <button className="text-custom-blue font-semibold">
+                    <NavLink to={`/product/edit/${item.id}`} end>
+                    <button
+                      className="text-custom-blue font-semibold"
+                      onClick={() => {
+                        setSelectedProductId(item.id);
+                      }}
+                    >
                       Edit
                     </button>
+                    </NavLink>
                   </div>
                   <div>
                     <button className="text-red-600 font-semibold">
@@ -82,9 +90,11 @@ function AccountStore() {
   return (
     <div className="h-svh">
         <div  className="px-4 py-2">
-          <button className="w-full bg-custom-orange-3 text-white font-bold p-2 rounded-lg">
-            Add New Item
-          </button>
+          <NavLink to={'/product/new'} end>
+            <button className="w-full bg-custom-orange-3 text-white font-bold p-2 rounded-lg">
+              Add New Item
+            </button>
+          </NavLink>
         </div>
         <div className="px-4 py-2">
           Filter

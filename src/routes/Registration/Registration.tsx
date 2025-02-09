@@ -1,8 +1,10 @@
-import { useState } from 'react'
-import { BackNav } from '../../components/Nav'
+import { useState } from 'react';
+import { handleChange, handleSubmit } from '../../utils/form';
+import { BackNav } from '../../components/Nav';
 
 function Registration() {
-  const URL = 'https://seruni-backend-production.up.railway.app';
+  const path = '/register'
+  const URL = 'https://seruni-backend-production.up.railway.app' + path;
 
   const [formData, setFormData] = useState({
     username: '',
@@ -12,58 +14,14 @@ function Registration() {
     phone: '',
   });
 
-  // const [users, setUsers] = useState({});
-
-  const handleChange = (e: { target: { name: string; value: string; }; }) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const params = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData),
   };
-
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
-    e.preventDefault();
-    try {
-      const response = await fetch(`${URL}/register`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-        // mode: 'no-cors',
-      });
-
-      if (response.ok) {
-        alert('Form submitted successfully!');
-      } else {
-        alert('Error submitting form!');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('There was an error submitting the form.');
-    }
-  };
-
-  // const handleUser = async() => {
-  //   try {
-  //     const response = await fetch(`${URL}/register`, {
-  //       method: 'GET',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //     });
-
-  //     const data = response.status === 204 ? null : await response.json();
-  //     console.log('Response from backend:', data);
-
-  //     if (response.ok) {
-  //       setUsers(data);
-  //     } else {
-  //       alert('Error get users!');
-  //     }
-  //   } catch (error) {
-  //     console.error('Error:', error);
-  //     alert('There was an error submitting the form.');
-  //   }
-  // }
-
+  
   return (
     <>
       <BackNav />
@@ -71,7 +29,7 @@ function Registration() {
         <div className='form-container mt-10'>
           <h1 className='form-title'>Registration</h1>
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={(e) => handleSubmit(e, URL, params)}>
             <div className='mb-4'>
               <label htmlFor='username' className='form-label'>
                 Username
@@ -81,7 +39,7 @@ function Registration() {
                 id='username'
                 name='username'
                 value={formData.username}
-                onChange={handleChange}
+                onChange={(e) => handleChange(e, setFormData, formData)}
                 autoComplete='off'
                 className='form-input'
               >
@@ -96,7 +54,7 @@ function Registration() {
                 id='password'
                 name='password'
                 value={formData.password}
-                onChange={handleChange}
+                onChange={(e) => handleChange(e, setFormData, formData)}
                 autoComplete='off'
                 className='form-input'
               ></input>
@@ -110,7 +68,7 @@ function Registration() {
                 id='name'
                 name='name'
                 value={formData.name}
-                onChange={handleChange}
+                onChange={(e) => handleChange(e, setFormData, formData)}
                 autoComplete='off'
                 className='form-input'
               ></input>
@@ -124,7 +82,7 @@ function Registration() {
                 id='email'
                 name='email'
                 value={formData.email}
-                onChange={handleChange}
+                onChange={(e) => handleChange(e, setFormData, formData)}
                 autoComplete='off'
                 className='form-input'
               ></input>
@@ -138,7 +96,7 @@ function Registration() {
                 id='phone'
                 name='phone'
                 value={formData.phone}
-                onChange={handleChange}
+                onChange={(e) => handleChange(e, setFormData, formData)}
                 autoComplete='off'
               className='form-input'
               ></input>
