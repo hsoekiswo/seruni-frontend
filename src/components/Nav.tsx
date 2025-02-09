@@ -1,30 +1,33 @@
-import { NavLink, useNavigate } from "react-router";
+import { NavLink, useNavigate, useLocation } from "react-router";
 
 export function Nav() {
+    const location = useLocation();
+    const navLinkClass = ({ isActive }) => `nav-li ${isActive ? "nav-li-active" : ""}`
+
     return (
       <nav className="flex flex-row items-center justify-center border pb-3 fixed top-0 left-0 w-full bg-white opacity-90"> 
           <div className="w-1/3">
             <img src="/assets/images/logo.png" className="h-16 pl-4" alt="Logo"></img>
           </div>
           <div className="w-1/3">
-            <ul className="flex flex-row justify-between p-2 w-full">
-                <li className="">
-                    <NavLink to="/" end>
+            <ul className="flex flex-row justify-between p-2 w-full text-lg font-semibold">
+                <li>
+                    <NavLink to="/" className={navLinkClass} end>
                     Home
                     </NavLink>
                 </li>
-                <li className="">
-                    <NavLink to="/blog" end>
+                <li>
+                    <NavLink to="/blog" className={navLinkClass} end>
                     Blog
                     </NavLink>
                 </li>
-                <li className="">
-                    <NavLink to="/store" end>
+                <li>
+                    <NavLink to="/store" className={navLinkClass} end>
                     Store
                     </NavLink>
                 </li>
-                <li className="">
-                    <NavLink to="/my-account" end>
+                <li>
+                    <NavLink to="/my-account" className={() => `nav-li ${location.pathname.startsWith("/my-account") ? "nav-li-active" : ""}`} end>
                     My Account
                     </NavLink>
                 </li>
