@@ -3,6 +3,7 @@ import Title from "../../components/Title";
 import { Nav } from "../../components/Nav";
 import { useState, useEffect } from "react";
 import { useProduct } from "../../context/ProductContext";
+import { getToken } from "../../utils/token";
 
 const URL = 'https://seruni-backend-production.up.railway.app';
 
@@ -38,21 +39,7 @@ function Product() {
       fetchItem();
     }, [selectedProductId]);
 
-
-    function getCookie(name) {
-      const cookies = document.cookie.split("; ");
-      for (const cookie of cookies) {
-        const [key, value] = cookie.split("=");
-        if (key === name) return value;
-      };
-      return null;
-    };
-
-    const token = getCookie("token");
-
-    const handleClick = () => {
-      console.log(token);
-    }
+    const token = getToken("token");
 
     return (
       <>
@@ -72,13 +59,13 @@ function Product() {
                 <Link
                   to="/checkout"
                 >
-                  <button className="form-button rounded-full" onClick={handleClick}>Register / Login to Buy</button>
+                  <button className="form-button rounded-full">Buy Item</button>
                 </Link>
               ) : (
                 <Link
                   to="/registration"
                 >
-                  <button className="form-button rounded-full" onClick={handleClick}>Register / Login to Buy</button>
+                  <button className="form-button rounded-full">Register / Login to Buy</button>
                 </Link>
               )}
               <br/>

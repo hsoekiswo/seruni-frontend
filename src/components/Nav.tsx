@@ -1,8 +1,32 @@
+import { useState } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router";
+import { getToken, decodeToken, removeToken } from "../utils/token";
+
+const LogOutModal = ({ isOpen, toggle }) => {
+  if (!isOpen) return null;
+
+  return (
+    <div>
+      <button
+        onClick={removeToken}
+        className="font-light text-sm text-red-500"
+      >
+        Log out
+      </button>
+    </div>
+  );
+};
 
 export function Nav() {
+    const [isLogOut, setIsLogOut] = useState(false);
+
+    const toggleLogOut = () => setIsLogOut((prev) => !prev);
+
     const location = useLocation();
     const navLinkClass = ({ isActive }) => `nav-li ${isActive ? "nav-li-active" : ""}`
+
+    const token = getToken("token");
+    const payload = decodeToken(token);
 
     return (
       <nav className="flex flex-row items-center justify-center border pb-3 fixed top-0 left-0 w-full bg-white opacity-90"> 
@@ -34,18 +58,31 @@ export function Nav() {
             </ul>
           </div>
           <div className="w-1/3">
-            <ul className="flex flex-row justify-end p-2 w-full">
-                <li className="px-4">
-                    <NavLink to="/login" end>
-                    Login
-                    </NavLink>
-                </li>
-                <li className="px-4">
-                    <NavLink to="/registration" end>
-                    Sign Up
-                    </NavLink>
-                </li>
-            </ul>
+            {
+              token ? (
+                <div className="flex flex-col justify-center items-end pt-2 pr-3">
+                  <div className="flex flex-col justify-center items-center">
+                    <button className="pt-1 text-xs text-custom-yellow-2" onClick={toggleLogOut}>
+                      {`Logged in as, ${payload.username}`}
+                    </button>
+                  </div>
+                  <LogOutModal isOpen={isLogOut} toggle={toggleLogOut} />
+                </div>
+              ) : (
+                <ul className="flex flex-row justify-end p-2 w-full">
+                    <li className="px-4">
+                        <NavLink to="/login" end>
+                        Login
+                        </NavLink>
+                    </li>
+                    <li className="px-4">
+                        <NavLink to="/registration" end>
+                        Sign Up
+                        </NavLink>
+                    </li>
+                </ul>
+              )
+            }
           </div>
       </nav>
     );

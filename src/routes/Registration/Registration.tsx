@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router';
 import { handleChange, handleSubmit } from '../../utils/form';
 import { HomeNav } from '../../components/Nav';
 
@@ -108,6 +109,13 @@ function Registration() {
               Register
             </button>
           </form>
+          <div className='mt-3'>
+            <p>
+              Have an account?
+              <Link to='/login'> Log in
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     </>
