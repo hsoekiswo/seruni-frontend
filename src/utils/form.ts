@@ -1,14 +1,14 @@
 interface EventChangeProps {
     target: {
         name: string;
-        value: string;
+        value: string | number;
     }
 }
 
-export const handleChange = (
+export const handleChange = <T extends Record<string, any>>(
     e: EventChangeProps,
-    setFormData: React.Dispatch<React.SetStateAction<{ [key: string]: string }>>,
-    formData: { [key: string]: string }
+    setFormData: React.Dispatch<React.SetStateAction<T>>,
+    formData: T
 ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
 };

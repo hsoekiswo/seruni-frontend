@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchItem } from "../../services/productService";
-import { handleChange, handleSubmit } from "../../utils/form";
+import { handleSubmit } from "../../utils/form";
 import { useProduct } from "../../context/ProductContext";
 import { ProductType } from "../../schema";
 import ProductForm from "../../components/ProductForm";
