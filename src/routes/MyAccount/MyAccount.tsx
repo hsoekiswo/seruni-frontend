@@ -9,8 +9,8 @@ function MyAccount() {
             <div className="pt-20">
                 <Title title="My Account" />
                 <div className="account-generic-container">
-                  <div className="w-3/4 min-h-32 min-h-1/5 max-h-fit border m-10 rounded-lg">
-                    <div className="border-b-2">
+                  <div className="w-3/4 min-h-32 min-h-1/5 max-h-fit border m-10 rounded-lg overflow-auto">
+                    <div className="border-b-2 sticky top-0 bg-white oppacity-100">
                       <ul className="flex flex-row justify-around py-3">
                         <li>
                         <NavLink to="/my-account" end className="hover:underline">
