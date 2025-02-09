@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { handleChange } from '../../utils/form';
+import { handleChange, handleSubmit } from '../../utils/form';
 import { BackNav } from '../../components/Nav';
 
 function Registration() {
-  const URL = 'https://seruni-backend-production.up.railway.app';
+  const path = '/register'
+  const URL = 'https://seruni-backend-production.up.railway.app' + path;
 
   const [formData, setFormData] = useState({
     username: '',
@@ -13,28 +14,14 @@ function Registration() {
     phone: '',
   });
 
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
-    e.preventDefault();
-    try {
-      const response = await fetch(`${URL}/register`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        alert('Form submitted successfully!');
-      } else {
-        alert('Error submitting form!');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      alert('There was an error submitting the form.');
-    }
+  const params = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(formData),
   };
-
+  
   return (
     <>
       <BackNav />
@@ -42,7 +29,7 @@ function Registration() {
         <div className='form-container mt-10'>
           <h1 className='form-title'>Registration</h1>
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={(e) => handleSubmit(e, URL, params)}>
             <div className='mb-4'>
               <label htmlFor='username' className='form-label'>
                 Username
