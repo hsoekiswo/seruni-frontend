@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-// import { useProduct } from "../../context/ProductContext";
+import { NavLink } from "react-router";
+import { useProduct } from "../../context/ProductContext";
 import { fetchItems } from "../../services/productService";
 import { handleImageLoad } from "../../utils/handleImageLoad";
 
@@ -14,7 +15,7 @@ function ItemRow() {
   const [items, setItems] = useState<ItemProps[]>([]);
   const [aspectClass, setAspectClass] = useState("");
   // const [loading, setLoading] = useState(true);
-  // const { setSelectedProductId } = useProduct();
+  const { setSelectedProductId } = useProduct();
 
   useEffect(() => {
     const getItems = async() => {
@@ -60,9 +61,16 @@ function ItemRow() {
               <td>
                 <div className="flex justify-around">
                   <div>
-                    <button className="text-custom-blue font-semibold">
+                    <NavLink to={`/product/edit/${item.id}`} end>
+                    <button
+                      className="text-custom-blue font-semibold"
+                      onClick={() => {
+                        setSelectedProductId(item.id);
+                      }}
+                    >
                       Edit
                     </button>
+                    </NavLink>
                   </div>
                   <div>
                     <button className="text-red-600 font-semibold">
