@@ -63,7 +63,7 @@ export function Nav() {
                 <div className="flex flex-col justify-center items-end pt-2 pr-3">
                   <div className="flex flex-col justify-center items-center">
                     <button className="pt-1 text-xs text-custom-yellow-2" onClick={toggleLogOut}>
-                      {`Logged in as, ${payload.username}`}
+                      {`Logged in as, ${payload.name}`}
                     </button>
                   </div>
                   <LogOutModal isOpen={isLogOut} />

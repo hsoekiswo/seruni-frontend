@@ -10,3 +10,10 @@ export interface ProductFormType {
     setFormData: React.Dispatch<React.SetStateAction<ProductType>>;
     onSubmit: (e: React.FormEvent) => void;
 }
+
+export interface EventChangeProps {
+    target: {
+        name: string;
+        value: string | number;
+    }
+}
