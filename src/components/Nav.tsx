@@ -29,7 +29,7 @@ export function Nav() {
     const payload = decodeToken(token);
 
     return (
-      <nav className="flex flex-row items-center justify-center border pb-3 fixed top-0 left-0 w-full bg-white opacity-90"> 
+      <nav className="flex flex-row items-center justify-center border pb-3 fixed top-0 left-0 w-full bg-white opacity-90 z-10"> 
           <div className="w-1/3">
             <img src="/assets/images/logo.png" className="h-16 pl-4" alt="Logo"></img>
           </div>
