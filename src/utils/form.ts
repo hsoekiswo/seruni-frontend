@@ -1,9 +1,5 @@
-interface EventChangeProps {
-    target: {
-        name: string;
-        value: string | number;
-    }
-}
+import { EventChangeProps } from "../schema";
+import { useNavigateHome } from "./useNavigateHome";
 
 export const handleChange = <T extends Record<string, any>>(
     e: EventChangeProps,
@@ -33,25 +29,32 @@ export const handleSubmit = async (
     }
 };
 
-export const handleLogin = async (
-    e: { preventDefault: () => void; },
+export const useLogin = (
     URL: string,
-    params: any,
+    params: any
 ) => {
-    e.preventDefault();
+    const navigateHome = useNavigateHome();
 
-    try {
-        const response = await fetch(URL, params);
-        const token = response.status === 204 ? null: await response.json();
-
-        if (response.ok) {
-            document.cookie = `token=${token}; path=/; max-age=3600`; // Expires in 1 hour
-            alert('Login successful!');
-        } else {
-            alert('Error during login!');
+    const handleLogin = async (
+        e: { preventDefault: () => void; }
+    ) => {
+        e.preventDefault();
+        
+        try {
+            const response = await fetch(URL, params);
+            const token = response.status === 204 ? null: await response.json();
+    
+            if (response.ok) {
+                document.cookie = `token=${token}; path=/; max-age=3600`; // Expires in 1 hour
+                navigateHome();
+            } else {
+                alert('Error during login!');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('There was an error during login.');
         }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('There was an error during login.');
     }
+
+    return handleLogin
 }

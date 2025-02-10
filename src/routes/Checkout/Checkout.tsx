@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { ProductType } from "../../schema";
 import { BackNav } from "../../components/Nav";
 import Title from "../../components/Title";
+import { getToken, decodeToken } from "../../utils/token";
 
 const URL = 'https://seruni-backend-production.up.railway.app';
 
@@ -14,6 +15,9 @@ function Checkout() {
           price: 0,
           description: '',
     });
+
+    const token = getToken('token');
+    const payload = decodeToken(token);
     
     useEffect(() => {
       const fetchItem = async() => {
@@ -38,22 +42,19 @@ function Checkout() {
             <Title title="Checkout"/>
             <div className="min-h-screen p-6">
               <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* Left - Form Section */}
                 <div className="bg-white p-6 rounded-lg shadow-lg">
                   <h2 className="text-xl font-semibold mb-4">Billing Details</h2>
 
                   <form className="space-y-4">
-                    {/* Name */}
                     <div>
                       <label className="form-label">Full Name</label>
                       <input
                         type="text"
                         className="form-input"
-                        placeholder="John Doe"
+                        value={payload.name}
                       />
                     </div>
 
-                    {/* Email */}
                     <div>
                       <label className="form-label">Email</label>
                       <input
@@ -63,7 +64,6 @@ function Checkout() {
                       />
                     </div>
 
-                    {/* Address */}
                     <div>
                       <label className="form-label">Address</label>
                       <input
@@ -73,7 +73,6 @@ function Checkout() {
                       />
                     </div>
 
-                    {/* Payment Method */}
                     <div>
                       <label className="form-label">Payment Method</label>
                       <select className="form-options">

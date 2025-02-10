@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { handleChange, handleLogin } from '../../utils/form';
+import { handleChange, useLogin } from '../../utils/form';
 import { HomeNav } from '../../components/Nav';
 
 function Login() {
@@ -16,6 +16,7 @@ function Login() {
       },
       body: JSON.stringify(formData),
     };
+    const handleLogin = useLogin(URL, params)
   
     return (
       <>
@@ -24,7 +25,7 @@ function Login() {
           <div className='form-container'>
             <h1 className='form-title'>Login</h1>
 
-            <form onSubmit={(e) => handleLogin(e, URL, params)}>
+            <form onSubmit={handleLogin}>
               <div className='mb-4'>
                 <label htmlFor='username' className='form-label'>Username</label>
                 <input
