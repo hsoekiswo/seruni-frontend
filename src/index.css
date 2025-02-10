@@ -41,11 +41,13 @@
 }
 @layer components {
   .nav-li:hover {
-    @apply underline underline-offset-4
+    @apply italic
+    /* underline underline-offset-4 */
   }
 
   .nav-li-active {
-    @apply underline underline-offset-4
+    @apply italic
+    /* underline underline-offset-4 */
   }
 
   .form-background {
