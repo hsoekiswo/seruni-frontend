@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { handleChange, handleLogin } from '../../utils/form';
-import { BackNav } from '../../components/Nav';
+import { HomeNav } from '../../components/Nav';
 
 function Login() {
     const path = '/login'
@@ -19,7 +19,7 @@ function Login() {
   
     return (
       <>
-        <BackNav />
+        <HomeNav />
         <div className='form-background'>
           <div className='form-container'>
             <h1 className='form-title'>Login</h1>

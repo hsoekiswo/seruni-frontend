@@ -89,33 +89,35 @@ function ItemRow() {
 function AccountStore() {
   return (
     <div className="h-svh">
-        <div  className="px-4 py-2">
-          <NavLink to={'/product/new'} end>
-            <button className="w-full bg-custom-orange-3 text-white font-bold p-2 rounded-lg">
-              Add New Item
-            </button>
-          </NavLink>
-        </div>
-        <div className="px-4 py-2">
-          Filter
-          <form>
-            <div className="flex">
-              <div className="w-full mr-4">
-                <label>
-                  <input type="text" placeholder="Search" className="form-input">
-                  </input>
-                </label>
+        <div className="sticky top-12 bg-white oppacity-100">
+          <div  className="px-4 py-2">
+            <NavLink to={'/product/new'} end>
+              <button className="w-full bg-custom-orange-3 text-white font-bold p-2 rounded-lg">
+                Add New Item
+              </button>
+            </NavLink>
+          </div>
+          <div className="px-4 py-2">
+            Filter
+            <form>
+              <div className="flex">
+                <div className="w-full mr-4">
+                  <label>
+                    <input type="text" placeholder="Search" className="form-input">
+                    </input>
+                  </label>
+                </div>
+                <div className="flex items-center justify-center w-2/12">
+                  <button type="submit" className="w-full bg-slate-500 text-white font-bold p-2 rounded-lg">
+                    Search
+                  </button>
+                </div>
               </div>
-              <div className="flex items-center justify-center w-2/12">
-                <button type="submit" className="w-full bg-slate-500 text-white font-bold p-2 rounded-lg">
-                  Search
-                </button>
-              </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
-        <div className="overflow-scroll h-fit">
-          <table className="border w-full">
+        <div className="h-fit">
+          <table className="border w-full min-h-max">
             <thead className="bg-slate-500 text-white">
               <tr>
                 <th className="py-2 w-1/6">ID</th>

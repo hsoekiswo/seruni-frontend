@@ -40,6 +40,14 @@
   }
 }
 @layer components {
+  .nav-li:hover {
+    @apply underline underline-offset-4
+  }
+
+  .nav-li-active {
+    @apply underline underline-offset-4
+  }
+
   .form-background {
     @apply min-h-screen flex items-center justify-center bg-gray-100;
   }

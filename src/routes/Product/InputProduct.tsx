@@ -2,6 +2,8 @@ import { useState } from "react";
 import { ProductType } from "../../schema";
 import ProductForm from "../../components/ProductForm";
 import { handleSubmit } from "../../utils/form";
+import { BackNav } from "../../components/Nav";
+import Title from "../../components/Title";
 
 
 function InputProduct() {
@@ -25,12 +27,19 @@ function InputProduct() {
 
     return (
         <>
-            <h1>New Product</h1>
-            <ProductForm
-                formData={formData}
-                setFormData={setFormData}
-                onSubmit={(e) => handleSubmit(e, URL, params)}
-            />
+            <BackNav />
+            <div className="pt-20">
+                <Title title="New Product"/>
+                <div className="account-generic-container">
+                    <div className="w-3/4 min-h-32 min-h-1/5 max-h-fit border m-10 p-6 rounded-lg">
+                        <ProductForm
+                            formData={formData}
+                            setFormData={setFormData}
+                            onSubmit={(e) => handleSubmit(e, URL, params)}
+                        />
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

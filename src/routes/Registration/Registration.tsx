@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { Link } from 'react-router';
 import { handleChange, handleSubmit } from '../../utils/form';
-import { BackNav } from '../../components/Nav';
+import { HomeNav } from '../../components/Nav';
 
 function Registration() {
   const path = '/register'
@@ -24,7 +25,7 @@ function Registration() {
   
   return (
     <>
-      <BackNav />
+      <HomeNav />
       <div className='form-background'>
         <div className='form-container mt-10'>
           <h1 className='form-title'>Registration</h1>
@@ -108,6 +109,13 @@ function Registration() {
               Register
             </button>
           </form>
+          <div className='mt-3'>
+            <p>
+              Have an account?
+              <Link to='/login'> Log in
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     </>
