@@ -1,9 +1,12 @@
 import { NavLink, Outlet } from "react-router";
 import { Nav } from "../../components/Nav";
 import Title from "../../components/Title";
+import { getToken, decodeToken } from "../../utils/token";
 
 function MyAccount() {
     const navLinkClass = ({ isActive }) => `nav-li ${isActive ? "nav-li-active" : ""}`
+    const token = getToken('token');
+    const payload = decodeToken(token);
 
     return (
       <>
@@ -19,11 +22,18 @@ function MyAccount() {
                           Purchases
                         </NavLink>
                         </li>
-                        <li>
-                        <NavLink to="account-store" className={navLinkClass}>
-                          Store
-                        </NavLink>
-                        </li>
+                        {
+                          (payload.role === 'admin') ? (
+                            <li>
+                            <NavLink to="account-store" className={navLinkClass}>
+                              Store
+                            </NavLink>
+                            </li>
+                          ) : (
+                            <>
+                            </>
+                          )
+                        }
                         <li>
                         <NavLink to="detailed-account" className={navLinkClass}>
                           Account
