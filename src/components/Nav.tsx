@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router";
 import { getToken, decodeToken, removeToken } from "../utils/token";
 
-const LogOutModal = ({ isOpen, toggle }) => {
+const LogOutModal = ({ isOpen }) => {
   if (!isOpen) return null;
 
   return (
@@ -66,7 +66,7 @@ export function Nav() {
                       {`Logged in as, ${payload.username}`}
                     </button>
                   </div>
-                  <LogOutModal isOpen={isLogOut} toggle={toggleLogOut} />
+                  <LogOutModal isOpen={isLogOut} />
                 </div>
               ) : (
                 <ul className="flex flex-row justify-end p-2 w-full">
