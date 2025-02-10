@@ -1,7 +1,36 @@
+import { useProduct } from "../../context/ProductContext";
+import { useState, useEffect } from "react";
+import { ProductType } from "../../schema";
 import { BackNav } from "../../components/Nav";
 import Title from "../../components/Title";
 
+const URL = 'https://seruni-backend-production.up.railway.app';
+
 function Checkout() {
+    const { selectedProductId } = useProduct();
+    const [data, setData] = useState<ProductType>({
+          name: '',
+          image: '',
+          price: 0,
+          description: '',
+    });
+    
+    useEffect(() => {
+      const fetchItem = async() => {
+        try {
+          const response = await fetch(`${URL}/products/${selectedProductId}`);
+          const result = await response.json();
+          setData(result);
+        }
+        catch (error) {
+          console.error("Error", error);
+          alert('There was an error during retrieving item.');
+        }
+      };
+
+      fetchItem();
+    }, [selectedProductId]);
+
     return (
       <>
           <BackNav />
@@ -61,19 +90,10 @@ function Checkout() {
                   <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
 
                   <div className="border-b pb-4 mb-4">
-                    <div className="flex justify-between text-gray-700">
-                      <span>Item 1</span>
-                      <span>$50</span>
+                    <div className="flex justify-between text-lg font-semibold">
+                      <span>{data.name}</span>
+                      <span>{`Rp ${data.price.toLocaleString("id-ID")}`}</span>
                     </div>
-                    <div className="flex justify-between text-gray-700">
-                      <span>Item 2</span>
-                      <span>$30</span>
-                    </div>
-                  </div>
-
-                  <div className="flex justify-between text-lg font-semibold">
-                    <span>Total</span>
-                    <span>$80</span>
                   </div>
 
                   <button className="form-button">

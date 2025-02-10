@@ -53,11 +53,12 @@ function Product() {
             <div className="w-1/2 py-16 pr-16 pl-8">
               <h2>{data.name}</h2>
               <br/>
-              <h3>{data.price}</h3>
+              <h3>{`Rp ${data.price.toLocaleString("id-ID")}`}</h3>
               <br/>
               {token ? (
                 <Link
                   to="/checkout"
+                  state={data}
                 >
                   <button className="form-button rounded-full">Buy Item</button>
                 </Link>
