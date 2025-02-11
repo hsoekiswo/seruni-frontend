@@ -125,4 +125,8 @@
   .account-generic-container {
     @apply w-screen h-screen px-10 flex justify-center;
   }
+
+  .rounded-checkbox {
+    @apply appearance-none h-5 w-5 rounded-full border border-gray-300 checked:bg-blue-500 checked:border-blue-500 focus:outline-none;
+  }
 }
