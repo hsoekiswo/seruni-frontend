@@ -23,7 +23,7 @@ function MyAccount() {
                         </NavLink>
                         </li>
                         {
-                          (payload.role === 'admin') ? (
+                          (payload?.role === 'admin') ? (
                             <li>
                             <NavLink to="account-store" className={navLinkClass}>
                               Store
