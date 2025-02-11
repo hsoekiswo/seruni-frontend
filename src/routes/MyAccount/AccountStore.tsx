@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router";
+import Search from "../../components/Search";
 import { useProduct } from "../../context/ProductContext";
 import { fetchItems } from "../../services/productService";
 import { handleImageLoad } from "../../utils/handleImageLoad";
@@ -99,21 +100,7 @@ function AccountStore() {
           </div>
           <div className="px-4 py-2">
             Filter
-            <form>
-              <div className="flex">
-                <div className="w-full mr-4">
-                  <label>
-                    <input type="text" placeholder="Search" className="form-input">
-                    </input>
-                  </label>
-                </div>
-                <div className="flex items-center justify-center w-2/12">
-                  <button type="submit" className="w-full bg-slate-500 text-white font-bold p-2 rounded-lg">
-                    Search
-                  </button>
-                </div>
-              </div>
-            </form>
+            <Search />
           </div>
         </div>
         <div className="h-fit">

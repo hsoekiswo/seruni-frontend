@@ -34,7 +34,7 @@ function Item({ id, name, image, price, onClick }: ItemProps) {
     )
 }
 
-function ItemList() {
+function useItemList() {
     const [items, setItems] = useState<Pick<ItemProps, "id" | "name" | "image" | "price">[]>([]);
     const [loading, setLoading] = useState(true);
     const { setSelectedProductId } = useProduct();
@@ -54,6 +54,28 @@ function ItemList() {
         getItems();
     }, [setItems]);
 
+    const onItemClick = (item) => () => {
+        setSelectedProductId(item);
+    }
+
+    return {
+        items,
+        // setItems,
+        loading,
+        // setLoading,
+        setSelectedProductId,
+        onItemClick
+    }
+}
+
+function ItemList() {
+    const {
+        items,
+        loading,
+        // setSelectedProductId,
+        onItemClick
+    } = useItemList();
+
     if (loading) return <p>Loading...</p>
 
     return (
@@ -66,9 +88,7 @@ function ItemList() {
                         name={item.name}
                         image={item.image}
                         price={item.price}
-                        onClick={() => {
-                            setSelectedProductId(item.id);
-                        }} />
+                        onClick={onItemClick(item.id)} />
                     </NavLink>
                 ))
             }
