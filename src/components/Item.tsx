@@ -34,49 +34,55 @@ function Item({ id, name, image, price, onClick }: ItemProps) {
     )
 }
 
-function useItemList() {
-    const [items, setItems] = useState<Pick<ItemProps, "id" | "name" | "image" | "price">[]>([]);
-    const [loading, setLoading] = useState(true);
+// function useItemList() {
+//     const [items, setItems] = useState<Pick<ItemProps, "id" | "name" | "image" | "price">[]>([]);
+//     const [loading, setLoading] = useState(true);
+//     const { setSelectedProductId } = useProduct();
+
+//     useEffect(() => {
+//         const getItems = async () => {
+//             try {
+//                 const data = await fetchItems();
+//                 setItems(data);
+//             } catch {
+//                 alert("There was an error retrieving items");
+//             } finally {
+//                 setLoading(false);
+//             }
+//         }
+
+//         getItems();
+//     }, [setItems]);
+
+//     const onItemClick = (item) => () => {
+//         setSelectedProductId(item);
+//     }
+
+//     return {
+//         items,
+//         // setItems,
+//         loading,
+//         // setLoading,
+//         setSelectedProductId,
+//         onItemClick
+//     }
+// }
+
+function ItemList({ items, loading }) {
+    // const {
+    //     items,
+    //     loading,
+    //     // setSelectedProductId,
+    //     onItemClick
+    // } = useItemList();
+
     const { setSelectedProductId } = useProduct();
 
-    useEffect(() => {
-        const getItems = async () => {
-            try {
-                const data = await fetchItems();
-                setItems(data);
-            } catch {
-                alert("There was an error retrieving items");
-            } finally {
-                setLoading(false);
-            }
-        }
-
-        getItems();
-    }, [setItems]);
+    if (loading) return <p>Loading...</p>
 
     const onItemClick = (item) => () => {
         setSelectedProductId(item);
     }
-
-    return {
-        items,
-        // setItems,
-        loading,
-        // setLoading,
-        setSelectedProductId,
-        onItemClick
-    }
-}
-
-function ItemList() {
-    const {
-        items,
-        loading,
-        // setSelectedProductId,
-        onItemClick
-    } = useItemList();
-
-    if (loading) return <p>Loading...</p>
 
     return (
         <div className="item-generic-container">
@@ -88,7 +94,8 @@ function ItemList() {
                         name={item.name}
                         image={item.image}
                         price={item.price}
-                        onClick={onItemClick(item.id)} />
+                        onClick={onItemClick(item.id)} 
+                        />
                     </NavLink>
                 ))
             }

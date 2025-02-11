@@ -1,10 +1,22 @@
-function Search() {
+import { handleChange } from "../utils/form";
+import { SearchFormType } from "../schema";
+
+function Search(
+    { formData, setFormData, onSubmit }: SearchFormType
+) {
     return (
-        <form>
+        <form onSubmit={onSubmit}>
             <div className="flex">
             <div className="w-full mr-4">
                 <label>
-                <input type="text" placeholder="Search" className="form-input">
+                <input
+                    type="text"
+                    id='keyword'
+                    name='keyword'
+                    placeholder="Search"
+                    className="form-input"
+                    onChange={(e) => {handleChange(e, setFormData, formData)}}
+                    >
                 </input>
                 </label>
             </div>
