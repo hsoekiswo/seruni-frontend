@@ -5,7 +5,6 @@ import Title from "../../components/Title";
 import ItemList from "../../components/Item";
 import Search from "../../components/Search";
 import CheckTags from "../../components/CheckTags";
-// import { handleSubmit } from "../../utils/form";
 import { SearchType } from "../../schema";
 import { ItemProps } from "../../schema";
 
@@ -13,17 +12,36 @@ function Store() {
   const [ formData, setFormData ] = useState<SearchType>({
     keyword: ''
   });
+  const [ formTags, setTags ] = useState({
+    workshop: false,
+    class: false,
+    'learning-resource': false,
+  });
   const [items, setItems] = useState<Pick<ItemProps, "id" | "name" | "image" | "price">[]>([]);
   const [loading, setLoading] = useState(false);
-  // console.log('formData.keyword');
-  // console.log(formData.keyword);
 
   const fetchItems = async() => {
     setLoading(true);
     const path = '/products'
     let URL = 'https://seruni-backend-production.up.railway.app' + path;
+    // Convert to uppercase
+    const selectedTags = Object.keys(formTags)
+      .filter(tag => formTags[tag])
+      .map(tag =>
+        tag
+          .split('-')
+          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+          .join(' ')
+    );
     if (formData.keyword) {
-      URL += `?search=${formData.keyword}`
+      URL += `?search=${formData.keyword}`;
+      if (selectedTags.length > 0) {
+        URL += `&tags=${selectedTags.join(',')}`;
+      }
+    } else {
+      if (selectedTags.length > 0) {
+        URL += `?tags=${selectedTags.join(',')}`;
+      }
     }
 
     try {
@@ -35,8 +53,6 @@ function Store() {
       });
 
       const data = await response.json();
-      // console.log('data');
-      // console.log(JSON.stringify(data));
       setItems(data);
     } catch (error) {
       console.error('Error fetching items:', error);
@@ -47,10 +63,10 @@ function Store() {
 
   useEffect(() => {
     fetchItems();
-  }, []);
+  }, [formData, formTags]);
 
   const handleSearchSubmit = (e: React.FormEvent) => {
-    e.preventDefault(); // Prevent page refresh
+    e.preventDefault();
     fetchItems();
   };
 
@@ -65,11 +81,14 @@ function Store() {
                   formData={formData}
                   setFormData={setFormData}
                   onSubmit={handleSearchSubmit}
-                  // onSubmit={(e) => handleSubmit(e, URL, params)}
                 />
               </div>
               <div className="pt-4">
-                <CheckTags />
+                <CheckTags
+                  formData={formTags}
+                  setFormData={setTags}
+                  onTagsClick={handleSearchSubmit}
+                />
               </div>
           </div>
           <div>

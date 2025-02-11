@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useProduct } from "../context/ProductContext";
 import { NavLink } from "react-router";
-import { fetchItems } from "../services/productService";
+// import { fetchItems } from "../services/productService";
 import { handleImageLoad } from "../utils/handleImageLoad";
 
 interface ItemProps {
