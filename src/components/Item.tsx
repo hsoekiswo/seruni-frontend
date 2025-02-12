@@ -9,10 +9,11 @@ interface ItemProps {
     name: string;
     image: string;
     price: number;
+    tags: string;
     onClick: () => void;
 }
 
-function Item({ id, name, image, price, onClick }: ItemProps) {
+function Item({ id, name, image, price, tags, onClick }: ItemProps) {
     const [aspectClass, setAspectClass] = useState("");
 
     return (
@@ -25,8 +26,13 @@ function Item({ id, name, image, price, onClick }: ItemProps) {
                     <div className="item-title-container">
                         <h3>{name}</h3>
                     </div>
-                    <div className="item-price-container">
-                        <h3>{`Rp ${price.toLocaleString("id-ID")}`}</h3>
+                    <div className="flex fles-row justify-between items-center">
+                        <div className="item-tags-container">
+                            <h3>{tags}</h3>
+                        </div>
+                        <div className="item-price-container">
+                            <h3>{`Rp ${price.toLocaleString("id-ID")}`}</h3>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -94,6 +100,7 @@ function ItemList({ items, loading }) {
                         name={item.name}
                         image={item.image}
                         price={item.price}
+                        tags={item.tags}
                         onClick={onItemClick(item.id)} 
                         />
                     </NavLink>
