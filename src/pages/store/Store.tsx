@@ -5,7 +5,7 @@ import CheckTags from "@components/search/CheckTags";
 import Search from "@components/search/Search";
 import Title from "@components/shared/Title";
 import { Nav } from "@components/shared/Nav";
-import { ItemType, SearchType } from "@schema/index";
+import { ItemType, SearchType, SearchTagsType } from "@schema/index";
 
 function Store() {
   const [ formData, setFormData ] = useState<SearchType>({
@@ -69,6 +69,20 @@ function Store() {
     fetchItems();
   };
 
+  const toggleClick = (
+    e: React.MouseEvent,
+    setFormData: React.Dispatch<React.SetStateAction<SearchTagsType>>,
+  ) => {
+      e.preventDefault();
+
+      const name = e.target.dataset.name;
+      
+      setFormData((prev) => ({
+          ...prev,
+          [name]: !prev[name]
+      }))
+  };
+
   return (
     <>
         <Nav />
@@ -84,6 +98,7 @@ function Store() {
               </div>
               <div className="pt-4">
                 <CheckTags
+                  toggleClick={toggleClick}
                   formData={formTags}
                   setFormData={setTags}
                   onTagsClick={handleSearchSubmit}

@@ -1,27 +1,16 @@
-interface SearchTagsType {
-    workshop: boolean;
-    class: boolean;
-    'learning-resources': boolean;
-}
+import { SearchTagsType } from "@schema/index";
 
 interface SearchTagsProps {
+    toggleClick: (
+        e: React.MouseEvent,
+        setFormData: React.Dispatch<React.SetStateAction<SearchTagsType>>,
+    ) => void,
+    setFormData: React.Dispatch<React.SetStateAction<SearchTagsType>>
     formData: SearchTagsType,
-    setFormData: React.Dispatch<React.SetStateAction<SearchTagsType>>;
     onTagsClick: (e: React.FormEvent) => void;
 }
 
-function CheckTags({ setFormData, formData, onTagsClick }: SearchTagsProps) {
-    const toggleClick = (e) => {
-        e.preventDefault();
-
-        const name = e.target.dataset.name;
-        
-        setFormData((prev) => ({
-            ...prev,
-            [name]: !prev[name]
-        }))
-    }
-
+function CheckTags({ toggleClick, formData, setFormData, onTagsClick }: SearchTagsProps) {
     return (
         <form>
             <div className="flex flex-row">
@@ -34,7 +23,7 @@ function CheckTags({ setFormData, formData, onTagsClick }: SearchTagsProps) {
                         className={`mr-3 px-2 py-1 border rounded-full ${(formData[tag]) ? "bg-custom-violet text-white" : ""}`}
                         data-name={tag} // Set name in dataset
                         onClick={(e) => {
-                            toggleClick(e);
+                            toggleClick(e, setFormData);
                             onTagsClick(e);
                         }}
                     >

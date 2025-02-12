@@ -10,3 +10,9 @@ export interface ItemType {
 export interface SearchType {
     keyword: string;
 }
+
+export interface SearchTagsType {
+    workshop: boolean;
+    class: boolean;
+    'learning-resources': boolean;
+}
