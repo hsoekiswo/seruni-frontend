@@ -53,6 +53,20 @@ function ProductForm(
                 onChange={(e) => {handleChange(e, setFormData, formData)}}
             >
             </input>
+            <label>
+                Tags
+            </label>
+            <select
+                className="form-input"
+                id='tags'
+                name='tags'
+                value={formData.tags}
+                onChange={(e) => {handleChange(e, setFormData, formData)}}
+            >
+                <option>Workshop</option>
+                <option>Classes</option>
+                <option>Learning Resources</option>
+            </select>
             <button
                 type="submit"
                 className="border my-2 p-2 bg-slate-400 text-white font-bold"

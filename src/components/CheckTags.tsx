@@ -19,7 +19,7 @@ function CheckTags({ setFormData, formData, onTagsClick }) {
                     <label htmlFor={tag} className="form-label inline">
                     <button
                         type="button"
-                        className="mr-3 px-2 py-1 border rounded-full"
+                        className={`mr-3 px-2 py-1 border rounded-full ${(formData[tag]) ? "bg-custom-violet text-white" : ""}`}
                         data-name={tag} // Set name in dataset
                         onClick={(e) => {
                             toggleClick(e);

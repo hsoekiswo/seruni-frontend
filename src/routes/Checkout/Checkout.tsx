@@ -14,6 +14,7 @@ function Checkout() {
           image: '',
           price: 0,
           description: '',
+          tags: '',
     });
 
     const token = getToken('token');

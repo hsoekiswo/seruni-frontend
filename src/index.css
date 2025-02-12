@@ -111,11 +111,15 @@
   }
 
   .item-title-container {
-    @apply h-1/2 p-2 text-center;
+    @apply h-1/2 p-2 text-center text-lg;
+  }
+
+  .item-tags-container {
+    @apply mx-2 px-2 text-center text-sm border bg-slate-400 text-white;
   }
 
   .item-price-container {
-    @apply h-1/2 px-4 py-2 text-left self-end font-bold;
+    @apply px-4 py-2 text-left self-end font-bold;
   }
 
   .product-generic-container {

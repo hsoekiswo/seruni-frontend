@@ -12,6 +12,7 @@ function InputProduct() {
         image: '',
         price: 0,
         description: '',
+        tags: '',
     });
 
     const path = '/products'

@@ -14,6 +14,7 @@ function EditProduct() {
         image: '',
         price: 0,
         description: '',
+        tags: '',
     });
 
     useEffect(() => {
