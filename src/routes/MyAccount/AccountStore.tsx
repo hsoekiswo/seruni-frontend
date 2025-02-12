@@ -4,6 +4,7 @@ import Search from "../../components/Search";
 import { useProduct } from "../../context/ProductContext";
 import { fetchItems } from "../../services/productService";
 import { handleImageLoad } from "../../utils/handleImageLoad";
+import { SearchType } from "../../schema";
 
 interface ItemProps {
   id: string;
@@ -15,7 +16,6 @@ interface ItemProps {
 function ItemRow() {
   const [items, setItems] = useState<ItemProps[]>([]);
   const [aspectClass, setAspectClass] = useState("");
-  // const [loading, setLoading] = useState(true);
   const { setSelectedProductId } = useProduct();
 
   useEffect(() => {
@@ -88,6 +88,19 @@ function ItemRow() {
 }
 
 function AccountStore() {
+  const [ formData, setFormData ] = useState<SearchType>({
+    keyword: ''
+  });
+
+  useEffect(() => {
+    fetchItems();
+  }, [formData]);
+
+  const handleSearchSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    fetchItems();
+  };
+
   return (
     <div className="h-svh">
         <div className="sticky top-12 bg-white oppacity-100">
@@ -100,7 +113,11 @@ function AccountStore() {
           </div>
           <div className="px-4 py-2">
             Filter
-            <Search />
+            <Search
+              formData={formData}
+              setFormData={setFormData}
+              onSubmit={handleSearchSubmit}
+            />
           </div>
         </div>
         <div className="h-fit">
