@@ -18,7 +18,7 @@ function Store() {
   const [ formTags, setTags ] = useState({
     workshop: false,
     class: false,
-    'learning-resource': false,
+    'learning-resources': false,
   });
   const [items, setItems] = useState<ItemProps[]>([]);
   const [loading, setLoading] = useState(false);

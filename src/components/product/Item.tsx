@@ -88,7 +88,7 @@ function ItemList({ items, loading }) {
     return (
         <div className="item-generic-container">
             {
-                items.map((item) => (
+                items.map((item: ItemProps) => (
                     <NavLink to={`/product/${item.id}`} end>
                     <Item
                         id={item.id}

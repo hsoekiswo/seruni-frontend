@@ -1,5 +1,17 @@
-function CheckTags({ setFormData, formData, onTagsClick }) {
-    const toggleClick = (e: any) => {
+interface SearchTagsType {
+    workshop: boolean;
+    class: boolean;
+    'learning-resources': boolean;
+}
+
+interface SearchTagsProps {
+    formData: SearchTagsType,
+    setFormData: React.Dispatch<React.SetStateAction<SearchTagsType>>;
+    onTagsClick: () => void;
+}
+
+function CheckTags({ setFormData, formData, onTagsClick }: SearchTagsProps) {
+    const toggleClick = (e) => {
         e.preventDefault();
 
         const name = e.target.dataset.name;
