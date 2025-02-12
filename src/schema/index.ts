@@ -1,9 +1,9 @@
 export interface ProductType {
     name: string;
     image: string;
+    description: string;
     price: number;
     tags: string;
-    description: string;
 }
 
 export interface ProductFormType {
