@@ -1,5 +1,5 @@
-import { ProductFormType } from "../schema";
-import { handleChange } from "../utils/form";
+import { ProductFormType } from "@schema/index";
+import { handleChange } from "@utils/form/formUtils";
 
 function ProductForm(
     { formData, setFormData, onSubmit }: ProductFormType

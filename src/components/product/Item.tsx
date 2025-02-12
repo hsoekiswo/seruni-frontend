@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { useProduct } from "../context/ProductContext";
+import { useProduct } from "@context/ProductContext";
 import { NavLink } from "react-router";
 // import { fetchItems } from "../services/productService";
-import { handleImageLoad } from "../utils/handleImageLoad";
+import { handleImageLoad } from "@utils/image/handleImageLoad";
 
 interface ItemProps {
     id: string;

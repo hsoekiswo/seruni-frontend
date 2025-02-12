@@ -1,5 +1,5 @@
-import { Nav } from "../../components/Nav";
-import Title from "../../components/Title";
+import { Nav } from "@components/shared/Nav";
+import Title from "@components/shared/Title";
 
 function Blog() {
     return (

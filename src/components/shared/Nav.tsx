@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router";
-import { getToken, decodeToken, removeToken } from "../utils/token";
+import { getToken, decodeToken, removeToken } from "@utils/auth/token";
 
 const LogOutModal = ({ isOpen }) => {
   if (!isOpen) return null;

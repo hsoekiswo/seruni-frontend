@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import { Nav } from "../../components/Nav";
+import { Nav } from "@components/shared/Nav";
 import { Link } from "react-router";
-import Title from "../../components/Title";
-import ItemList from "../../components/Item";
-import Search from "../../components/Search";
-import CheckTags from "../../components/CheckTags";
-import { SearchType } from "../../schema";
-import { ItemProps } from "../../schema";
+import Title from "@components/shared/Title";
+import ItemList from "@components/product/Item";
+import Search from "@components/search/Search";
+import CheckTags from "@components/search/CheckTags";
+import { SearchType } from "@schema/index";
+import { ItemProps } from "@schema/index";
 
 function Store() {
   const [ formData, setFormData ] = useState<SearchType>({

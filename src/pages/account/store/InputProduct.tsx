@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { ProductType } from "../../schema";
-import ProductForm from "../../components/ProductForm";
-import { handleSubmit } from "../../utils/form";
-import { BackNav } from "../../components/Nav";
-import Title from "../../components/Title";
+import { ProductType } from "@schema/index";
+import ProductForm from "@components/product/ProductForm";
+import { handleSubmit } from "@utils/form/formUtils";
+import { BackNav } from "@components/shared/Nav";
+import Title from "@components/shared/Title";
 
 
 function InputProduct() {

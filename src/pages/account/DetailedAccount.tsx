@@ -1,5 +1,5 @@
 import { NavLink } from "react-router";
-import { getToken, decodeToken } from "../../utils/token";
+import { getToken, decodeToken } from "@utils/auth/token";
 
 function DetailedAccount() {
     const token = getToken('token');

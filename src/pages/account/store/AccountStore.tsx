@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router";
-import Search from "../../components/Search";
-import { useProduct } from "../../context/ProductContext";
-import { fetchItems } from "../../services/productService";
-import { handleImageLoad } from "../../utils/handleImageLoad";
-import { SearchType } from "../../schema";
+import Search from "@components/search/Search";
+import { useProduct } from "@context/ProductContext";
+import { fetchItems } from "@services/productService";
+import { handleImageLoad } from "@utils/image/handleImageLoad";
+import { SearchType } from "@schema/index";
 
 interface ItemProps {
   id: string;

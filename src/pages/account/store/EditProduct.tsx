@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { fetchItem } from "../../services/productService";
-import { handleSubmit } from "../../utils/form";
-import { useProduct } from "../../context/ProductContext";
-import { ProductType } from "../../schema";
-import ProductForm from "../../components/ProductForm";
-import { BackNav } from "../../components/Nav";
-import Title from "../../components/Title";
+import { fetchItem } from "@services/productService";
+import { handleSubmit } from "@utils/form/formUtils";
+import { useProduct } from "@context/ProductContext";
+import { ProductType } from "@schema/index";
+import ProductForm from "@components/product/ProductForm";
+import { BackNav } from "@components/shared/Nav";
+import Title from "@components/shared/Title";
 
 function EditProduct() {
     const { selectedProductId } = useProduct();

@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router";
 
-export const useNavigateHome = () => {
+const useNavigateHome = () => {
     const navigate = useNavigate();
     
     return () => navigate("/");
 }
+
+export default useNavigateHome;

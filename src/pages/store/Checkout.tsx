@@ -1,9 +1,9 @@
-import { useProduct } from "../../context/ProductContext";
+import { useProduct } from "@context/ProductContext";
 import { useState, useEffect } from "react";
-import { ProductType } from "../../schema";
-import { BackNav } from "../../components/Nav";
-import Title from "../../components/Title";
-import { getToken, decodeToken } from "../../utils/token";
+import { ProductType } from "@schema/index";
+import { BackNav } from "@components/shared/Nav";
+import Title from "@components/shared/Title";
+import { getToken, decodeToken } from "@utils/auth/token";
 
 const URL = 'https://seruni-backend-production.up.railway.app';
 

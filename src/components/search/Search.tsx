@@ -1,5 +1,5 @@
-import { handleChange } from "../utils/form";
-import { SearchFormType } from "../schema";
+import { handleChange } from "@utils/form/formUtils";
+import { SearchFormType } from "@schema/index";
 
 function Search(
     { formData, setFormData, onSubmit }: SearchFormType
