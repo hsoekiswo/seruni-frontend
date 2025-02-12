@@ -3,12 +3,16 @@ import { NavLink } from "react-router";
 import Search from "@components/search/Search";
 import { useProduct } from "@context/ProductContext";
 import { fetchItems } from "@services/productService";
-import { handleImageLoad } from "@utils/image/handleImageLoad";
+import { useAspectClass } from "@utils/image/useAspectClass";
 import { ItemType, SearchType } from "@schema/index";
 
 function ItemRow() {
+  const {
+      aspectClass,
+      setAspectClass,
+      handleImageLoad,
+  } = useAspectClass();
   const [items, setItems] = useState<ItemType[]>([]);
-  const [aspectClass, setAspectClass] = useState("");
   const { setSelectedProductId } = useProduct();
 
   useEffect(() => {
