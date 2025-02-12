@@ -7,10 +7,6 @@ import Title from "@components/shared/Title";
 import { Nav } from "@components/shared/Nav";
 import { ItemType, SearchType } from "@schema/index";
 
-interface ItemProps extends Pick<ItemType, 'id' | 'name' | 'image' | 'price'> {
-  onClick: () => void;
-}
-
 function Store() {
   const [ formData, setFormData ] = useState<SearchType>({
     keyword: ''
@@ -20,7 +16,7 @@ function Store() {
     class: false,
     'learning-resources': false,
   });
-  const [items, setItems] = useState<ItemProps[]>([]);
+  const [items, setItems] = useState<ItemType[]>([]);
   const [loading, setLoading] = useState(false);
 
   const fetchItems = async() => {

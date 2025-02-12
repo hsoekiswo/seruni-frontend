@@ -7,7 +7,7 @@ interface SearchTagsType {
 interface SearchTagsProps {
     formData: SearchTagsType,
     setFormData: React.Dispatch<React.SetStateAction<SearchTagsType>>;
-    onTagsClick: () => void;
+    onTagsClick: (e: React.FormEvent) => void;
 }
 
 function CheckTags({ setFormData, formData, onTagsClick }: SearchTagsProps) {
@@ -35,7 +35,7 @@ function CheckTags({ setFormData, formData, onTagsClick }: SearchTagsProps) {
                         data-name={tag} // Set name in dataset
                         onClick={(e) => {
                             toggleClick(e);
-                            onTagsClick();
+                            onTagsClick(e);
                         }}
                     >
                         {tag.replace("-", " ").replace(/\b\w/g, (c) => c.toUpperCase())}
