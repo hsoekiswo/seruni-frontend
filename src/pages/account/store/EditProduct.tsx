@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import { fetchItem } from "../../services/productService";
-import { handleSubmit } from "../../utils/form";
-import { useProduct } from "../../context/ProductContext";
-import { ProductType } from "../../schema";
-import ProductForm from "../../components/ProductForm";
-import { BackNav } from "../../components/Nav";
-import Title from "../../components/Title";
+import { useProduct } from "@context/ProductContext";
+import ProductForm from "@components/product/ProductForm";
+import { BackNav } from "@components/shared/Nav";
+import Title from "@components/shared/Title";
+import { fetchItem } from "@services/productService";
+import { ItemType } from "@schema/index";
+import { handleSubmit } from "@utils/form/formUtils";
 
 function EditProduct() {
     const { selectedProductId } = useProduct();
-    const [formData, setFormData] = useState<ProductType>({
+    const [formData, setFormData] = useState<Omit<ItemType, 'id'>>({
         name: '',
         image: '',
         price: 0,

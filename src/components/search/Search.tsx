@@ -1,8 +1,14 @@
-import { handleChange } from "../utils/form";
-import { SearchFormType } from "../schema";
+import { handleChange } from "@utils/form/formUtils";
+import { SearchType } from "@schema/index";
+
+interface SearchFormProps {
+    formData: SearchType,
+    setFormData: React.Dispatch<React.SetStateAction<SearchType>>;
+    onSubmit: (e: React.FormEvent) => void;
+}
 
 function Search(
-    { formData, setFormData, onSubmit }: SearchFormType
+    { formData, setFormData, onSubmit }: SearchFormProps
 ) {
     return (
         <form onSubmit={onSubmit}>

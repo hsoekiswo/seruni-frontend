@@ -1,5 +1,17 @@
-function CheckTags({ setFormData, formData, onTagsClick }) {
-    const toggleClick = (e: any) => {
+interface SearchTagsType {
+    workshop: boolean;
+    class: boolean;
+    'learning-resources': boolean;
+}
+
+interface SearchTagsProps {
+    formData: SearchTagsType,
+    setFormData: React.Dispatch<React.SetStateAction<SearchTagsType>>;
+    onTagsClick: (e: React.FormEvent) => void;
+}
+
+function CheckTags({ setFormData, formData, onTagsClick }: SearchTagsProps) {
+    const toggleClick = (e) => {
         e.preventDefault();
 
         const name = e.target.dataset.name;
@@ -23,7 +35,7 @@ function CheckTags({ setFormData, formData, onTagsClick }) {
                         data-name={tag} // Set name in dataset
                         onClick={(e) => {
                             toggleClick(e);
-                            onTagsClick();
+                            onTagsClick(e);
                         }}
                     >
                         {tag.replace("-", " ").replace(/\b\w/g, (c) => c.toUpperCase())}

@@ -1,15 +1,10 @@
 import { useState } from "react";
-import { useProduct } from "../context/ProductContext";
 import { NavLink } from "react-router";
-// import { fetchItems } from "../services/productService";
-import { handleImageLoad } from "../utils/handleImageLoad";
+import { useProduct } from "@context/ProductContext";
+import { handleImageLoad } from "@utils/image/handleImageLoad";
+import { ItemType } from "@schema/index";
 
-interface ItemProps {
-    id: string;
-    name: string;
-    image: string;
-    price: number;
-    tags: string;
+interface ItemProps extends Omit<ItemType, "description">{
     onClick: () => void;
 }
 
@@ -93,7 +88,7 @@ function ItemList({ items, loading }) {
     return (
         <div className="item-generic-container">
             {
-                items.map((item) => (
+                items.map((item: ItemProps) => (
                     <NavLink to={`/product/${item.id}`} end>
                     <Item
                         id={item.id}

@@ -1,8 +1,14 @@
-import { ProductFormType } from "../schema";
-import { handleChange } from "../utils/form";
+import { ItemType } from "@schema/index";
+import { handleChange } from "@utils/form/formUtils";
+
+interface ItemFormProps {
+    formData: Omit<ItemType, 'id'>;
+    setFormData: React.Dispatch<React.SetStateAction<ItemType>>;
+    onSubmit: (e: React.FormEvent) => void;
+}
 
 function ProductForm(
-    { formData, setFormData, onSubmit }: ProductFormType
+    { formData, setFormData, onSubmit }: ItemFormProps
 ) {
     return (
         <form onSubmit={onSubmit}>

@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import { Nav } from "../../components/Nav";
 import { Link } from "react-router";
-import Title from "../../components/Title";
-import ItemList from "../../components/Item";
-import Search from "../../components/Search";
-import CheckTags from "../../components/CheckTags";
-import { SearchType } from "../../schema";
-import { ItemProps } from "../../schema";
+import ItemList from "@components/product/Item";
+import CheckTags from "@components/search/CheckTags";
+import Search from "@components/search/Search";
+import Title from "@components/shared/Title";
+import { Nav } from "@components/shared/Nav";
+import { ItemType, SearchType } from "@schema/index";
 
 function Store() {
   const [ formData, setFormData ] = useState<SearchType>({
@@ -15,9 +14,9 @@ function Store() {
   const [ formTags, setTags ] = useState({
     workshop: false,
     class: false,
-    'learning-resource': false,
+    'learning-resources': false,
   });
-  const [items, setItems] = useState<Pick<ItemProps, "id" | "name" | "image" | "price">[]>([]);
+  const [items, setItems] = useState<ItemType[]>([]);
   const [loading, setLoading] = useState(false);
 
   const fetchItems = async() => {

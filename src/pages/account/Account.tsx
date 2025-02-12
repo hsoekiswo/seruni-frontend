@@ -1,7 +1,7 @@
 import { NavLink, Outlet } from "react-router";
-import { Nav } from "../../components/Nav";
-import Title from "../../components/Title";
-import { getToken, decodeToken } from "../../utils/token";
+import Title from "@components/shared/Title";
+import { Nav } from "@components/shared/Nav";
+import { getToken, decodeToken } from "@utils/auth/token";
 
 function MyAccount() {
     const navLinkClass = ({ isActive }) => `nav-li ${isActive ? "nav-li-active" : ""}`

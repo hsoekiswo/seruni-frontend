@@ -1,9 +1,9 @@
-import { Link } from "react-router";
-import Title from "../../components/Title";
-import { Nav } from "../../components/Nav";
 import { useState, useEffect } from "react";
-import { useProduct } from "../../context/ProductContext";
-import { getToken } from "../../utils/token";
+import { Link } from "react-router";
+import Title from "@components/shared/Title";
+import { Nav } from "@components/shared/Nav";
+import { useProduct } from "@context/ProductContext";
+import { getToken } from "@utils/auth/token";
 
 const URL = 'https://seruni-backend-production.up.railway.app';
 

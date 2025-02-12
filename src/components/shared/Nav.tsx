@@ -1,8 +1,13 @@
 import { useState } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router";
-import { getToken, decodeToken, removeToken } from "../utils/token";
+import { getToken, decodeToken, removeToken } from "@utils/auth/token";
 
-const LogOutModal = ({ isOpen }) => {
+interface LogOutModalProps {
+  LogoutModal: React.FC<{ isOpen: boolean}>
+  isOpen: boolean;
+}
+
+const LogOutModal = ({isOpen}: LogOutModalProps) => {
   if (!isOpen) return null;
 
   return (
@@ -66,7 +71,7 @@ export function Nav() {
                       {`Logged in as, ${payload.name}`}
                     </button>
                   </div>
-                  <LogOutModal isOpen={isLogOut} />
+                  <LogOutModal isOpen={isLogOut} LogoutModal={undefined} />
                 </div>
               ) : (
                 <ul className="flex flex-row justify-end p-2 w-full">

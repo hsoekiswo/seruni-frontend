@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router';
-import { handleChange, handleSubmit } from '../../utils/form';
-import { HomeNav } from '../../components/Nav';
+import { HomeNav } from '@components/shared/Nav';
+import { handleChange, handleSubmit } from '@utils/form/formUtils';
 
 function Registration() {
   const path = '/register'

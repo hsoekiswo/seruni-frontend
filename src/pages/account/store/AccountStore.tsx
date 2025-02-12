@@ -1,20 +1,13 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router";
-import Search from "../../components/Search";
-import { useProduct } from "../../context/ProductContext";
-import { fetchItems } from "../../services/productService";
-import { handleImageLoad } from "../../utils/handleImageLoad";
-import { SearchType } from "../../schema";
-
-interface ItemProps {
-  id: string;
-  name: string;
-  image: string;
-  price: number;
-}
+import Search from "@components/search/Search";
+import { useProduct } from "@context/ProductContext";
+import { fetchItems } from "@services/productService";
+import { handleImageLoad } from "@utils/image/handleImageLoad";
+import { ItemType, SearchType } from "@schema/index";
 
 function ItemRow() {
-  const [items, setItems] = useState<ItemProps[]>([]);
+  const [items, setItems] = useState<ItemType[]>([]);
   const [aspectClass, setAspectClass] = useState("");
   const { setSelectedProductId } = useProduct();
 

@@ -1,21 +1,21 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import './index.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import './index.css';
 import App from './App.tsx';
-import Login from './routes/Login/Login.tsx';
-import Registration from './routes/Registration/Registration.tsx';
-import Store from './routes/Store/Store.tsx';
-import Product from './routes/Product/Product.tsx';
-import Checkout from './routes/Checkout/Checkout.tsx';
-import Blog from './routes/Blog/Blog.tsx';
-import MyAccount from './routes/MyAccount/MyAccount.tsx';
-import { ProductProvider } from './context/ProductContext.tsx';
-import Purchases from './routes/MyAccount/Purchases.tsx';
-import AccountStore from './routes/MyAccount/AccountStore.tsx';
-import DetailedAccount from './routes/MyAccount/DetailedAccount.tsx';
-import EditProduct from './routes/Product/EditProduct.tsx';
-import InputProduct from './routes/Product/InputProduct.tsx';
+import Login from '@pages/login/Login.tsx';
+import Registration from '@pages/registration/Registration.tsx';
+import Store from '@pages/store/Store.tsx';
+import Product from '@pages/store/Product.tsx';
+import Checkout from '@pages/store/Checkout.tsx';
+import Blog from '@pages/blog/Blog.tsx';
+import MyAccount from '@pages/account/Account.tsx';
+import Purchases from '@pages/account/Purchases.tsx';
+import AccountStore from '@pages/account/store/AccountStore.tsx';
+import DetailedAccount from '@pages/account/DetailedAccount.tsx';
+import EditProduct from '@pages/account/store/EditProduct.tsx';
+import InputProduct from '@pages/account/store/InputProduct.tsx';
+import { ProductProvider } from '@context/ProductContext.tsx';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
