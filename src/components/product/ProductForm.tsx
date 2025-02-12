@@ -2,7 +2,7 @@ import { ItemType } from "@schema/index";
 import { handleChange } from "@utils/form/formUtils";
 
 interface ItemFormProps {
-    formData: ItemType;
+    formData: Omit<ItemType, 'id'>;
     setFormData: React.Dispatch<React.SetStateAction<ItemType>>;
     onSubmit: (e: React.FormEvent) => void;
 }

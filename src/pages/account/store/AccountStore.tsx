@@ -4,17 +4,10 @@ import Search from "@components/search/Search";
 import { useProduct } from "@context/ProductContext";
 import { fetchItems } from "@services/productService";
 import { handleImageLoad } from "@utils/image/handleImageLoad";
-import { SearchType } from "@schema/index";
-
-interface ItemProps {
-  id: string;
-  name: string;
-  image: string;
-  price: number;
-}
+import { ItemType, SearchType } from "@schema/index";
 
 function ItemRow() {
-  const [items, setItems] = useState<ItemProps[]>([]);
+  const [items, setItems] = useState<ItemType[]>([]);
   const [aspectClass, setAspectClass] = useState("");
   const { setSelectedProductId } = useProduct();
 

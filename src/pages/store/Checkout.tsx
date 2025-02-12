@@ -9,7 +9,7 @@ const URL = 'https://seruni-backend-production.up.railway.app';
 
 function Checkout() {
     const { selectedProductId } = useProduct();
-    const [data, setData] = useState<ItemType>({
+    const [data, setData] = useState<Omit<ItemType, 'id'>>({
           name: '',
           image: '',
           price: 0,

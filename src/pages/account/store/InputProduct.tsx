@@ -7,7 +7,7 @@ import { handleSubmit } from "@utils/form/formUtils";
 
 
 function InputProduct() {
-    const [formData, setFormData] = useState<ItemType>({
+    const [formData, setFormData] = useState<Omit<ItemType, 'id'>>({
         name: '',
         image: '',
         price: 0,

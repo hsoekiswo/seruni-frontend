@@ -5,13 +5,9 @@ import CheckTags from "@components/search/CheckTags";
 import Search from "@components/search/Search";
 import Title from "@components/shared/Title";
 import { Nav } from "@components/shared/Nav";
-import { SearchType } from "@schema/index";
+import { ItemType, SearchType } from "@schema/index";
 
-interface ItemProps {
-  id: string;
-  name: string;
-  image: string;
-  price: number;
+interface ItemProps extends Pick<ItemType, 'id' | 'name' | 'image' | 'price'> {
   onClick: () => void;
 }
 
@@ -24,7 +20,7 @@ function Store() {
     class: false,
     'learning-resource': false,
   });
-  const [items, setItems] = useState<Pick<ItemProps, "id" | "name" | "image" | "price">[]>([]);
+  const [items, setItems] = useState<ItemProps[]>([]);
   const [loading, setLoading] = useState(false);
 
   const fetchItems = async() => {

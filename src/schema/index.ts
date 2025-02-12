@@ -1,4 +1,5 @@
 export interface ItemType {
+    id: string;
     name: string;
     image: string;
     description: string;
@@ -8,10 +9,4 @@ export interface ItemType {
 
 export interface SearchType {
     keyword: string;
-}
-
-export interface SearchFormType {
-    formData: SearchType,
-    setFormData: React.Dispatch<React.SetStateAction<SearchType>>;
-    onSubmit: (e: React.FormEvent) => void;
 }

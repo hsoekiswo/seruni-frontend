@@ -2,13 +2,9 @@ import { useState } from "react";
 import { NavLink } from "react-router";
 import { useProduct } from "@context/ProductContext";
 import { handleImageLoad } from "@utils/image/handleImageLoad";
+import { ItemType } from "@schema/index";
 
-interface ItemProps {
-    id: string;
-    name: string;
-    image: string;
-    price: number;
-    tags: string;
+interface ItemProps extends Omit<ItemType, "description">{
     onClick: () => void;
 }
 
