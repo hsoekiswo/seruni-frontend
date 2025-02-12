@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { ProductType } from "@schema/index";
 import ProductForm from "@components/product/ProductForm";
-import { handleSubmit } from "@utils/form/formUtils";
-import { BackNav } from "@components/shared/Nav";
 import Title from "@components/shared/Title";
+import { BackNav } from "@components/shared/Nav";
+import { ItemType } from "@schema/index";
+import { handleSubmit } from "@utils/form/formUtils";
 
 
 function InputProduct() {
-    const [formData, setFormData] = useState<ProductType>({
+    const [formData, setFormData] = useState<ItemType>({
         name: '',
         image: '',
         price: 0,

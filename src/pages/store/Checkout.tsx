@@ -1,15 +1,15 @@
-import { useProduct } from "@context/ProductContext";
 import { useState, useEffect } from "react";
-import { ProductType } from "@schema/index";
-import { BackNav } from "@components/shared/Nav";
+import { useProduct } from "@context/ProductContext";
 import Title from "@components/shared/Title";
+import { BackNav } from "@components/shared/Nav";
+import { ItemType } from "@schema/index";
 import { getToken, decodeToken } from "@utils/auth/token";
 
 const URL = 'https://seruni-backend-production.up.railway.app';
 
 function Checkout() {
     const { selectedProductId } = useProduct();
-    const [data, setData] = useState<ProductType>({
+    const [data, setData] = useState<ItemType>({
           name: '',
           image: '',
           price: 0,

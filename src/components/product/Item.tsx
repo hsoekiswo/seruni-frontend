@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { useProduct } from "@context/ProductContext";
 import { NavLink } from "react-router";
-// import { fetchItems } from "../services/productService";
+import { useProduct } from "@context/ProductContext";
 import { handleImageLoad } from "@utils/image/handleImageLoad";
 
 interface ItemProps {

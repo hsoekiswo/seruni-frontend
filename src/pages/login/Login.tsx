@@ -1,7 +1,7 @@
 import { useState } from 'react'
+import { HomeNav } from '@components/shared/Nav';
 import { handleChange } from '@utils/form/formUtils';
 import useLogin from '@utils/auth/useLogin';
-import { HomeNav } from '@components/shared/Nav';
 
 function Login() {
     const path = '/login'

@@ -1,7 +1,7 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router";
 import Title from "@components/shared/Title";
 import { Nav } from "@components/shared/Nav";
-import { useState, useEffect } from "react";
 import { useProduct } from "@context/ProductContext";
 import { getToken } from "@utils/auth/token";
 
