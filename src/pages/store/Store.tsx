@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import ItemList from "@components/product/Item";
+import ItemList from "@components/product/ItemDisplay";
 import CheckTags from "@components/search/CheckTags";
 import Search from "@components/search/Search";
 import Title from "@components/shared/Title";
