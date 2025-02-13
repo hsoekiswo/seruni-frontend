@@ -1,40 +1,12 @@
-import { useState, useEffect } from "react";
-import { useProduct } from "@context/ProductContext";
 import Title from "@components/shared/Title";
 import { BackNav } from "@components/shared/Nav";
-import { ItemType } from "@schema/index";
 import { getToken, decodeToken } from "@utils/auth/token";
-
-const URL = 'https://seruni-backend-production.up.railway.app';
+import useDisplayItem from "@utils/display/useDisplayItem";
 
 function Checkout() {
-    const { selectedProductId } = useProduct();
-    const [data, setData] = useState<Omit<ItemType, 'id'>>({
-          name: '',
-          image: '',
-          price: 0,
-          description: '',
-          tags: '',
-    });
-
+    const data = useDisplayItem();
     const token = getToken('token');
     const payload = decodeToken(token);
-    
-    useEffect(() => {
-      const fetchItem = async() => {
-        try {
-          const response = await fetch(`${URL}/products/${selectedProductId}`);
-          const result = await response.json();
-          setData(result);
-        }
-        catch (error) {
-          console.error("Error", error);
-          alert('There was an error during retrieving item.');
-        }
-      };
-
-      fetchItem();
-    }, [selectedProductId]);
 
     return (
       <>
