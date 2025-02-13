@@ -2,10 +2,12 @@ import { useState } from 'react';
 import { Link } from 'react-router';
 import { HomeNav } from '@components/shared/Nav';
 import { handleChange, handleSubmit } from '@utils/form/formUtils';
+import useNavigateHome from '@utils/navigation/useNavigateHome';
 
 function Registration() {
   const path = '/register'
   const URL = 'https://seruni-backend-production.up.railway.app' + path;
+  const navigateHome = useNavigateHome();
 
   const [formData, setFormData] = useState({
     username: '',
@@ -22,6 +24,18 @@ function Registration() {
     },
     body: JSON.stringify(formData),
   };
+
+  const useSubmit = async (e: React.FormEvent) => {
+    e.preventDefault(); // Prevent default form submission behavior
+
+    try {
+        await handleSubmit(e, URL, params); // Assuming handleSubmit is an async function
+      } catch (error) {
+        console.error("Submission failed:", error);
+      } finally {
+      navigateHome();
+    }
+};
   
   return (
     <>
@@ -30,7 +44,7 @@ function Registration() {
         <div className='form-container mt-10'>
           <h1 className='form-title'>Registration</h1>
 
-          <form onSubmit={(e) => handleSubmit(e, URL, params)}>
+          <form onSubmit={useSubmit}>
             <div className='mb-4'>
               <label htmlFor='username' className='form-label'>
                 Username

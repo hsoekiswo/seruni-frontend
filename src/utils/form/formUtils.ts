@@ -17,7 +17,7 @@ export const handleSubmit = async (
     e: { preventDefault: () => void; },
     URL: string,
     params: any,
-    ) => {
+) => {
     e.preventDefault();
 
     try {
