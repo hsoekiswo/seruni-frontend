@@ -1,14 +1,24 @@
 import { NavLink } from "react-router";
 import { useProduct } from "@context/ProductContext";
 import { useAspectClass } from "@utils/image/useAspectClass";
+import { deleteItem } from "@services/productService";
 
-function ItemTableDisplay({ items }) {
+function ItemTableDisplay({ items, refreshItems }) {
   const {
       aspectClass,
       setAspectClass,
       handleImageLoad,
   } = useAspectClass();
   const { setSelectedProductId } = useProduct();
+
+  const handleDelete = async (id) => {
+    try {
+      await deleteItem(id);
+      refreshItems();
+    } catch (error) {
+      console.error("Error deleting item:", error);
+    }
+  };
 
   return (
     <>
@@ -51,7 +61,10 @@ function ItemTableDisplay({ items }) {
                     </NavLink>
                   </div>
                   <div>
-                    <button className="text-red-600 font-semibold">
+                    <button
+                      className="text-red-600 font-semibold"
+                      onClick={() => handleDelete(item.id)}
+                      >
                       Delete
                     </button>
                   </div>

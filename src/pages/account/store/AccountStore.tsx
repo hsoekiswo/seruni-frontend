@@ -6,6 +6,7 @@ import ItemTableDisplay from "@components/product/ItemTableDisplay";
 function AccountStore() {
   const {
     items,
+    refreshItems,
     formData,
     setFormData,
     handleSearchSubmit,
@@ -43,6 +44,7 @@ function AccountStore() {
             <tbody className="text-center">
               <ItemTableDisplay
                 items={items}
+                refreshItems={refreshItems}
               />
             </tbody>
           </table>

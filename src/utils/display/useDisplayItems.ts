@@ -19,20 +19,21 @@ const useDisplayItems = () => {
     const [items, setItems] = useState<ItemType[]>([]);
     const [loading, setLoading] = useState(false);
     
-    useEffect(() => {
-        const generateItems = async() => {
-            try {
-                const result = await fetchItems({
-                    formTags: formTags,
-                    formData: formData,
-                });
-                setItems(result);
-            } catch (error) {
-                console.error('Error fetching items', error);
-            } finally{
-                setLoading(false);
-            }
+    const generateItems = async() => {
+        try {
+            const result = await fetchItems({
+                formTags: formTags,
+                formData: formData,
+            });
+            setItems(result);
+        } catch (error) {
+            console.error('Error fetching items', error);
+        } finally{
+            setLoading(false);
         }
+    }
+    
+    useEffect(() => {
         generateItems();
     }, [formData, formTags]);
 
@@ -46,6 +47,7 @@ const useDisplayItems = () => {
 
     return ({
         items,
+        refreshItems: generateItems,
         loading,
         formData,
         setFormData,
