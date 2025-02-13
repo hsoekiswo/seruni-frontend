@@ -1,7 +1,6 @@
-import { useState } from "react";
 import { NavLink } from "react-router";
 import { useProduct } from "@context/ProductContext";
-import { handleImageLoad } from "@utils/image/handleImageLoad";
+import { useAspectClass } from "@utils/image/useAspectClass";
 import { ItemType } from "@schema/index";
 
 interface ItemProps extends Omit<ItemType, "description">{
@@ -9,7 +8,11 @@ interface ItemProps extends Omit<ItemType, "description">{
 }
 
 function Item({ id, name, image, price, tags, onClick }: ItemProps) {
-    const [aspectClass, setAspectClass] = useState("");
+    const {
+        aspectClass,
+        setAspectClass,
+        handleImageLoad,
+    } = useAspectClass();
 
     return (
         <div className="item item-container-size" key={id} onClick={onClick}>
@@ -35,48 +38,7 @@ function Item({ id, name, image, price, tags, onClick }: ItemProps) {
     )
 }
 
-// function useItemList() {
-//     const [items, setItems] = useState<Pick<ItemProps, "id" | "name" | "image" | "price">[]>([]);
-//     const [loading, setLoading] = useState(true);
-//     const { setSelectedProductId } = useProduct();
-
-//     useEffect(() => {
-//         const getItems = async () => {
-//             try {
-//                 const data = await fetchItems();
-//                 setItems(data);
-//             } catch {
-//                 alert("There was an error retrieving items");
-//             } finally {
-//                 setLoading(false);
-//             }
-//         }
-
-//         getItems();
-//     }, [setItems]);
-
-//     const onItemClick = (item) => () => {
-//         setSelectedProductId(item);
-//     }
-
-//     return {
-//         items,
-//         // setItems,
-//         loading,
-//         // setLoading,
-//         setSelectedProductId,
-//         onItemClick
-//     }
-// }
-
 function ItemList({ items, loading }) {
-    // const {
-    //     items,
-    //     loading,
-    //     // setSelectedProductId,
-    //     onItemClick
-    // } = useItemList();
-
     const { setSelectedProductId } = useProduct();
 
     if (loading) return <p>Loading...</p>

@@ -8,5 +8,22 @@ export interface ItemType {
 }
 
 export interface SearchType {
-    keyword: string;
+    keyword?: string;
+}
+
+export interface SearchTagsType {
+    workshop: boolean;
+    class: boolean;
+    'learning-resources': boolean;
+}
+
+export interface FetchItemsType {
+    formTags?: {
+        workshop: boolean,
+        class: boolean,
+        'learning-resources': boolean,
+    } | object;
+    formData?: {
+        keyword?: string
+    };
 }
