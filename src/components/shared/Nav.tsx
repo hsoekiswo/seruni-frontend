@@ -46,8 +46,8 @@ export function Nav() {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/blog" className={navLinkClass} end>
-                    Blog
+                    <NavLink to="/about" className={navLinkClass} end>
+                    About
                     </NavLink>
                 </li>
                 <li>

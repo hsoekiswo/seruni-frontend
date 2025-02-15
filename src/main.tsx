@@ -8,7 +8,7 @@ import Registration from '@pages/registration/Registration.tsx';
 import Store from '@pages/store/Store.tsx';
 import Product from '@pages/store/Product.tsx';
 import Checkout from '@pages/store/Checkout.tsx';
-import Blog from '@pages/blog/Blog.tsx';
+import About from '@pages/about/About.tsx';
 import MyAccount from '@pages/account/Account.tsx';
 import Purchases from '@pages/account/Purchases.tsx';
 import AccountStore from '@pages/account/store/AccountStore.tsx';
@@ -30,7 +30,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path="/product/edit/:id" element={<EditProduct />} />
           <Route path="/product/:id" element={<Product />} />
           <Route path="/checkout" element={<Checkout />} />
-          <Route path="/blog" element={<Blog />} />
+          <Route path="/about" element={<About />} />
           <Route path="/my-account" element={<MyAccount />}>
             <Route path="" element={<Purchases />} /> 
             <Route path="account-store" element={<AccountStore />} />/
