@@ -143,3 +143,32 @@
     @apply appearance-none h-5 w-5 rounded-full border border-gray-300 checked:bg-blue-500 checked:border-blue-500 focus:outline-none;
   }
 }
+
+@layer utilities {
+  .custom-background-infinite {
+    background-image: url('/assets/images/image7.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%; 
+    height: auto;
+  }
+
+  .custom-background-mixed {
+    background-image: url('/assets/images/image8.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%; 
+    height: auto;
+  }
+
+  .custom-background-rainbow {
+    background-image: url('/assets/images/image9.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%; 
+    height: auto;
+  }
+}
