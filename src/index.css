@@ -1,12 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Cormorant:ital,wght@1,400&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+    --font-family: 'Open Sans', Avenir, system-ui;
+    /* 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif */
     --line-height: 1.5;
     --font-weight: 400;
+    background: #FAF6EA;
   }
 
   html {
@@ -34,6 +38,11 @@
     line-height: 1.1;
   }
 
+  h1 em, h1 i {
+    font-family: 'Cormorant', serif;
+    font-size: 1.2em;
+  }
+
   h2 {
     font-size: 2.5em;
     line-height: 0.8;
@@ -41,12 +50,12 @@
 }
 @layer components {
   .nav-li:hover {
-    @apply italic
+    @apply italic font-comorant text-2xl
     /* underline underline-offset-4 */
   }
 
   .nav-li-active {
-    @apply italic
+    @apply italic font-comorant text-2xl
     /* underline underline-offset-4 */
   }
 
