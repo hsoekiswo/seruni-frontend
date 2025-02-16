@@ -92,15 +92,19 @@
   }
 
   .item-generic-container {
-    @apply w-screen h-screen px-10 grid grid-cols-2;
+    @apply grid grid-cols-1 md:grid-cols-2 lg:px-10;
   }
 
   .item-container-size {
-    @apply w-full h-3/4;
+    @apply w-full;
   }
 
   .item-container {
-    @apply h-96 my-5 mx-5 border-2 rounded-lg;
+    @apply h-96 my-5 mx-5 border rounded-lg md:border-2;
+  }
+
+  .item-img-container-mobile {
+    @apply h-3/4 flex items-center justify-center;
   }
 
   .item-img-container {
@@ -120,11 +124,19 @@
   }
 
   .item-title-container {
-    @apply h-1/2 p-2 text-center text-lg;
+    @apply p-2 text-center text-sm md:h-1/2 md:text-lg;
+  }
+
+  .item-tags-container-mobile {
+    @apply text-xs border bg-slate-400 text-white;
   }
 
   .item-tags-container {
     @apply mx-2 px-2 text-center text-sm border bg-slate-400 text-white;
+  }
+
+  .item-price-container-mobile {
+    @apply text-xs text-left self-end font-bold;
   }
 
   .item-price-container {
@@ -170,5 +182,58 @@
     background-repeat: no-repeat;
     width: 100%; 
     height: auto;
+  }
+
+  .custom-background-rainbow-r90 {
+    background-image: url('/assets/images/image9.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%; 
+    height: auto;
+  }
+
+  .mixed-img-setting {
+    @apply custom-background-mixed relative flex flex-col min-h-[800px] max-w-[1000px] w-full
+  }
+
+  .absolute-text-1 {
+    @apply absolute top-80 left-60 w-1/5
+  }
+
+  .absolute-text-2 {
+    @apply absolute top-20 right-28 w-1/5
+  }
+
+  .absolute-text-3 {
+    @apply absolute bottom-20 left-48 w-1/4 text-sm
+  }
+
+  .absolute-text-4 {
+    @apply absolute bottom-36 right-8 w-1/2
+  }
+
+  .mobile-text {
+    @apply text-sm m-4 py-4 px-4
+  }
+
+  .mobile-text-xs {
+    @apply mx-4 px-4
+  }
+
+  .five-column-container {
+    @apply flex flex-row justify-end min-h-[600px]
+  }
+
+  .mobile-horizontal-row {
+    @apply flex flex-row justify-evenly py-2
+  }
+
+  .slim-vertical-col {
+    @apply flex flex-col justify-between w-1/5 text-center py-0
+  }
+
+  .rb-col {
+    @apply border-r border-r-slate-500
   }
 }
