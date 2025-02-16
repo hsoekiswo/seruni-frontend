@@ -18,7 +18,7 @@ function Home() {
                 </div>
 
                 {/* PROFILE SECTION */}
-                <div className="flex flex-col md:flex-row max-w-[1000px] max-h-[600px] w-full my-2">
+                <div className="flex flex-col md:flex-row max-w-[1000px] h-fit md:max-h-[600px] w-full my-2">
                     {/* LEFT SIDE */}
                     <div className="flex flex-col sm:flex-row m-4 py-2 px-4 sm:px-10 w-full md:w-2/3">
                         <div className="w-full sm:w-1/4"></div>
