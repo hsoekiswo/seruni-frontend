@@ -12,7 +12,7 @@ function Home() {
                             <h1 className="pr-2 text-xl sm:text-2xl md:text-3xl">The Art of Balance:</h1>
                             <h2 className="font-thin text-lg sm:text-xl md:text-2xl">A Guide to Kinesiology</h2>
                         </div>
-                        <h2 className="font-thin pb-2 text-m sm:text-l md:text-xl">By Seruni Sekarpuri</h2>
+                        <h2 className="font-thin pb-2 text-sm md:text-xl">By Seruni Sekarpuri</h2>
                     </div>
                     <img className="w-full px-4 sm:px-10 md:px-28" src="/assets/images/image1.png" alt="Banner" />
                 </div>
