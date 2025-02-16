@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router";
 import { getToken, decodeToken, removeToken } from "@utils/auth/token";
+import { Menu, X } from 'lucide-react';
 
 interface LogOutModalProps {
   LogoutModal: React.FC<{ isOpen: boolean}>
@@ -24,8 +25,10 @@ const LogOutModal = ({isOpen}: LogOutModalProps) => {
 
 export function Nav() {
     const [isLogOut, setIsLogOut] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleLogOut = () => setIsLogOut((prev) => !prev);
+    const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
     const location = useLocation();
     const navLinkClass = ({ isActive }) => `nav-li ${isActive ? "nav-li-active" : ""}`
@@ -34,12 +37,18 @@ export function Nav() {
     const payload = decodeToken(token);
 
     return (
-      <nav className="flex flex-row items-center justify-center border pb-3 fixed top-0 left-0 w-full bg-white opacity-90 z-20"> 
-          <div className="w-1/3">
-            <img src="/assets/images/logo.png" className="h-16 pl-4" alt="Logo"></img>
-          </div>
-          <div className="w-1/3">
-            <ul className="flex flex-row justify-between p-2 w-full text-lg font-semibold">
+      <nav className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+          <div className="container mx-auto flex justify-between items-center p-4">
+            <div>
+              <NavLink to="/" end>
+                <img src="/assets/images/logo.png" className="h-12" alt="Logo"></img>
+              </NavLink>
+            </div>
+            {/* Mobile Menu Button */}
+            <button className="md:hidden" onClick={toggleMenu}>
+              {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+            <ul className="hidden md:flex space-x-6 text-lg font-semibold">
                 <li>
                     <NavLink to="/" className={navLinkClass} end>
                     Home
@@ -61,34 +70,56 @@ export function Nav() {
                     </NavLink>
                 </li>
             </ul>
-          </div>
-          <div className="w-1/3">
-            {
-              token ? (
-                <div className="flex flex-col justify-center items-end pt-2 pr-3">
-                  <div className="flex flex-col justify-center items-center">
-                    <button className="pt-1 text-xs" onClick={toggleLogOut}>
-                      {`Logged in as, ${payload.name}`}
-                    </button>
+            <div className="hidden md:flex items-center space-x-4">
+              {
+                token ? (
+                    <div className="relative">
+                      <button className="pt-1 text-xs" onClick={toggleLogOut}>
+                        {`Logged in as, ${payload.name}`}
+                      </button>
+                    <LogOutModal isOpen={isLogOut} LogoutModal={undefined} />
                   </div>
-                  <LogOutModal isOpen={isLogOut} LogoutModal={undefined} />
-                </div>
-              ) : (
-                <ul className="flex flex-row justify-end p-2 w-full">
-                    <li className="px-4">
-                        <NavLink to="/login" end>
-                        Login
-                        </NavLink>
-                    </li>
-                    <li className="px-4">
-                        <NavLink to="/registration" end>
-                        Sign Up
-                        </NavLink>
-                    </li>
-                </ul>
-              )
-            }
+                ) : (
+                  <ul className="flex space-x-4">
+                      <li>
+                          <NavLink to="/login" end>
+                          Login
+                          </NavLink>
+                      </li>
+                      <li>
+                          <NavLink to="/registration" end>
+                          Sign Up
+                          </NavLink>
+                      </li>
+                  </ul>
+                )
+              }
+            </div>
           </div>
+
+          {/* Mobile Dropdown Menu */}
+          {
+            isMenuOpen && (
+              <div className="md:hidden bg-white shadow-md">
+                <ul className="flex flex-col items-center space-y-4 p-4">
+                  <li><NavLink to="/" className={navLinkClass} end onClick={toggleMenu}>Home</NavLink></li>
+                  <li><NavLink to="/about" className={navLinkClass} end onClick={toggleMenu}>About</NavLink></li>
+                  <li><NavLink to="/store" className={navLinkClass} end onClick={toggleMenu}>Store</NavLink></li>
+                  <li><NavLink to="/my-account" className={navLinkClass} end onClick={toggleMenu}>My Account</NavLink></li>
+                  {
+                    token ? (
+                      <button onClick={removeToken} className="text-sm text-red-500">
+                        Log out
+                      </button>
+                    ) : (
+                      <>
+                      <li><NavLink to="/login" end onClick={toggleMenu}>Login</NavLink></li>
+                      <li><NavLink to="/registration" end onClick={toggleMenu}>Sign Up</NavLink></li>
+                      </>
+                    )}
+                </ul>
+              </div>
+            )}
       </nav>
     );
   }
