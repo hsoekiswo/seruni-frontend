@@ -24,6 +24,7 @@ export default {
         'custom-cream-2': '#EBE1C6'
       },
       fontFamily: {
+        'open': ['Open Sans', 'serif'],
         'comorant': ['Cormorant', 'serif'],
       }
     },
