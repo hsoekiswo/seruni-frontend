@@ -15,20 +15,20 @@ function Item({ id, name, image, price, tags, onClick }: ItemProps) {
     } = useAspectClass();
 
     return (
-        <div className="item item-container-size" key={id} onClick={onClick}>
+        <div className="item-container-size" key={id} onClick={onClick}>
             <div className="item-container">
-                <div className="item-img-container overflow-hidden bg-gray-200">
+                <div className="item-img-container-mobile md:item-img-container overflow-hidden bg-gray-200">
                     <img src={image} alt={name} onLoad={(event) =>  handleImageLoad(event, setAspectClass)} className={`item-img ${aspectClass} h-max object-scale-down`}></img>
                 </div>
-                <div className="h-1/5 flex flex-col items-stretch">
+                <div className="flex flex-col justify-around border h-1/4 md:h-1/5">
                     <div className="item-title-container">
                         <h3>{name}</h3>
                     </div>
-                    <div className="flex fles-row justify-between items-center">
-                        <div className="item-tags-container">
+                    <div className="flex flex-row justify-between items-center">
+                        <div className="item-tags-container-mobile md:item-tags-container">
                             <h3>{tags}</h3>
                         </div>
-                        <div className="item-price-container">
+                        <div className="item-price-container-mobile md:item-price-container">
                             <h3>{`Rp ${price.toLocaleString("id-ID")}`}</h3>
                         </div>
                     </div>
