@@ -2,7 +2,6 @@ import { Link } from "react-router";
 import ItemList from "@components/product/ItemDisplay";
 import CheckTags from "@components/search/CheckTags";
 import Search from "@components/search/Search";
-import Title from "@components/shared/Title";
 import { Nav } from "@components/shared/Nav";
 import useDisplayItems from "@utils/display/useDisplayItems";
 
@@ -22,8 +21,7 @@ function Store() {
     <>
         <Nav />
         <div className="pt-20 flex flex-col">
-          <Title title="Store" />
-          <div className="mx-16 my-2 flex flex-col justify-between">
+          <div className="mx-2 md:mx-16 my-2 flex flex-col justify-between">
               <div className="">
                 <Search
                   formData={formData}

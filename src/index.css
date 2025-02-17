@@ -33,7 +33,7 @@
     color: #535bf2;
   }
 
-  h1 {
+  /* h1 {
     font-size: 3.2em;
     line-height: 1.1;
   }
@@ -46,7 +46,7 @@
   h2 {
     font-size: 2.5em;
     line-height: 0.8;
-  }
+  } */
 }
 @layer components {
   .nav-li:hover {
@@ -144,11 +144,11 @@
   }
 
   .product-generic-container {
-    @apply w-screen h-screen px-10 flex;
+    @apply w-screen h-screen px-10 grid grid-cols-1 md:grid-cols-2;
   }
 
   .account-generic-container {
-    @apply w-screen h-screen px-10 flex justify-center;
+    @apply w-screen h-screen md:px-10 flex justify-center;
   }
 
   .rounded-checkbox {
