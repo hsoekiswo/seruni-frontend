@@ -9,7 +9,7 @@ function DetailedAccount() {
         <>
             {
                 (payload) ? (
-                    <div className="min-h-32 min-h-1/5 max-h-fit m-10 p-6 rounded-lg">
+                    <div className="min-h-32 min-h-1/5 max-h-fit m-4 md:m-10 md:p-6 rounded-lg">
                         <form>
                             <label className="form-label">Username</label>
                             <input
