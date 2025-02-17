@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import { Link } from "react-router";
 import Search from "@components/search/Search";
 import useDisplayItems from "@utils/display/useDisplayItems";
 import ItemTableDisplay from "@components/product/ItemTableDisplay";
@@ -16,11 +16,11 @@ function AccountStore() {
     <div className="h-svh">
         <div className="sticky top-12 bg-white oppacity-100">
           <div  className="px-4 py-2">
-            <NavLink to={'/product/new'} end>
+            <Link to={'/products/new'}>
               <button className="w-full bg-custom-orange-3 text-white font-bold p-2 rounded-lg">
                 Add New Item
               </button>
-            </NavLink>
+            </Link>
           </div>
           <div className="px-4 py-2">
             Filter

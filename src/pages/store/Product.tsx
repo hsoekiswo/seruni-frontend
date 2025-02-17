@@ -1,10 +1,11 @@
-import { Link } from "react-router";
+import { Link, useParams } from "react-router";
 import { Nav } from "@components/shared/Nav";
 import { getToken } from "@utils/auth/token";
 import useDisplayItem from "@utils/display/useDisplayItem";
 
 function Product() {
-    const data = useDisplayItem();
+    const { id } = useParams();
+    const data = useDisplayItem(id);
     const token = getToken("token");
 
     return (

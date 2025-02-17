@@ -39,7 +39,7 @@ function Store() {
               </div>
           </div>
           <div>
-              <Link to="/product">
+              <Link to="/products">
                 <ItemList
                   items={items}
                   loading={loading}
