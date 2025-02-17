@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useProduct } from "@context/ProductContext";
+import { useParams } from "react-router";
 import ProductForm from "@components/product/ProductForm";
 import { BackNav } from "@components/shared/Nav";
 import Title from "@components/shared/Title";
@@ -8,7 +8,7 @@ import { ItemType } from "@schema/index";
 import { handleSubmit } from "@utils/form/formUtils";
 
 function EditProduct() {
-    const { selectedProductId } = useProduct();
+    const { id } = useParams();
     const [formData, setFormData] = useState<Omit<ItemType, 'id'>>({
         name: '',
         image: '',
@@ -20,7 +20,7 @@ function EditProduct() {
     useEffect(() => {
         const fetchData = async() => {
             try {
-                const result = await fetchItem(selectedProductId);
+                const result = await fetchItem(id);
                 setFormData(result);
             }
             catch (error) {
@@ -30,9 +30,9 @@ function EditProduct() {
         };
 
         fetchData();
-    }, [selectedProductId]);
+    }, [id]);
     
-    const path = `/products/${selectedProductId}`
+    const path = `/products/${id}`
     const URL = 'https://seruni-backend-production.up.railway.app' + path;
     
     const params = {

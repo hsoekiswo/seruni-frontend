@@ -23,7 +23,7 @@ function Product() {
               <br/>
               {token ? (
                 <Link
-                  to="/checkout"
+                  to={`/checkout/${id}`}
                   state={data}
                 >
                   <button className="form-button rounded-full">Buy Item</button>
