@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import { Link } from "react-router";
 import { useProduct } from "@context/ProductContext";
 import { useAspectClass } from "@utils/image/useAspectClass";
 
@@ -39,7 +39,7 @@ function ItemTableDisplay({ items }) {
               <td>
                 <div className="flex justify-around">
                   <div>
-                    <NavLink to={`/product/edit/${item.id}`} end>
+                    <Link to={`/products/edit/${item.id}`}>
                     <button
                       className="text-custom-blue font-semibold"
                       onClick={() => {
@@ -48,7 +48,7 @@ function ItemTableDisplay({ items }) {
                     >
                       Edit
                     </button>
-                    </NavLink>
+                    </Link>
                   </div>
                   <div>
                     <button className="text-red-600 font-semibold">

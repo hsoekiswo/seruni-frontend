@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import { Link } from "react-router";
 import { useProduct } from "@context/ProductContext";
 import { useAspectClass } from "@utils/image/useAspectClass";
 import { ItemType } from "@schema/index";
@@ -51,7 +51,7 @@ function ItemList({ items, loading }) {
         <div className="item-generic-container">
             {
                 items.map((item: ItemProps) => (
-                    <NavLink to={`/product/${item.id}`} end>
+                    <Link to={`/products/${item.id}`}>
                     <Item
                         id={item.id}
                         name={item.name}
@@ -60,7 +60,7 @@ function ItemList({ items, loading }) {
                         tags={item.tags}
                         onClick={onItemClick(item.id)} 
                         />
-                    </NavLink>
+                    </Link>
                 ))
             }
         </div>
