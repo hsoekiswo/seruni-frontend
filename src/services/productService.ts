@@ -1,3 +1,5 @@
+import { FetchItemsType } from "@schema/index";
+
 const URL = 'https://seruni-backend-production.up.railway.app';
 
 export const fetchItem = async(id: string) => {
@@ -11,8 +13,6 @@ export const fetchItem = async(id: string) => {
         throw error;
     }
 }
-            
-import { FetchItemsType } from "@schema/index";
 
 export const fetchItems = async({
     formTags = {},
@@ -54,3 +54,19 @@ export const fetchItems = async({
         console.error('Error fetching items:', error);
     }
 };
+
+export const deleteItem = async(id: string) => {
+    const path = '/products';
+    try {
+        const response = await fetch(`${URL}${path}/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+            });
+        await response.json();
+        alert(`Product with ID ${id} has been deleted`);
+    } catch (error) {
+        console.error('Error fetching items:', error);
+    }
+}

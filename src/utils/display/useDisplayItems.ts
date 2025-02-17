@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 import { ItemType } from "@schema/index";
 import useSearchItems from "@utils/search/useSearchItems";
 import useSearchByTags from "@utils/search/useSearchByTags";
@@ -18,34 +19,49 @@ const useDisplayItems = () => {
 
     const [items, setItems] = useState<ItemType[]>([]);
     const [loading, setLoading] = useState(false);
+
+    const navigate = useNavigate();
+    
+    const generateItems = async() => {
+        try {
+            const result = await fetchItems({
+                formTags: formTags,
+                formData: formData,
+            });
+            setItems(result);
+        } catch (error) {
+            console.error('Error fetching items', error);
+        } finally{
+            setLoading(false);
+        }
+    }
+
+    const updateURL = () => {
+        const selectedTags = Object.keys(formTags)
+            .filter((tag) => formTags[tag])
+            .join(",");
+    
+        const params = new URLSearchParams();
+        if (formData.keyword) params.append("q", formData.keyword);
+        if (selectedTags) params.append("tags", selectedTags);
+    
+        navigate(`/products?${params.toString()}`);
+    };
     
     useEffect(() => {
-        const generateItems = async() => {
-            try {
-                const result = await fetchItems({
-                    formTags: formTags,
-                    formData: formData,
-                });
-                setItems(result);
-            } catch (error) {
-                console.error('Error fetching items', error);
-            } finally{
-                setLoading(false);
-            }
-        }
         generateItems();
-    }, [formData, formTags]);
+        updateURL();
+    }, [formTags]);
 
     const handleSearchSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        fetchItems({
-            formTags: {},
-            formData: formData
-        });
+        generateItems();
+        updateURL();
     };
 
     return ({
         items,
+        refreshItems: generateItems,
         loading,
         formData,
         setFormData,
