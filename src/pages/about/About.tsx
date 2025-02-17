@@ -20,8 +20,7 @@ function About() {
                 <div className="flex flex-col md:flex-row min-h-[600px] max-w-[1000px] w-full my-2 pb-3 lg:custom-background-infinite">
                     {/* LEFT SIDE */}
                     <div className="sm:flex-row m-4 py-2 px-4 sm:px-6 w-full relative">
-                        <h1 className="lg:text-4xl text-xl">Personal <em>Journey</em></h1>
-                        <img src='assets/images/image7.png' className="sm:min-h-[200px] md:hidden lg:hidden"></img>
+                        <h1 className="mb-2 lg:text-4xl text-xl">Personal <em>Journey</em></h1>
                         {/* <p className="absolute bottom-0 right-0 w-1/2 text-sm"> */}
                         <p className="text-sm leading-releaxed lg:absolute lg:bottom-0 lg:right-0 lg:w-1/2">
                         Little did I know that when I embarked on this journey with myself, its impact
@@ -29,6 +28,7 @@ function About() {
                         brought me clarity but resonated with my family, friends, and others I've had
                         the privilege to help. It's a ripple effect of well-being and positive change.
                         <br/>
+                        <img src='assets/images/image7.png' className="sm:min-h-[200px] md:hidden lg:hidden"></img>
                         <br/>
                         I didn't truly understand myself until I discovered kinesiology, providing the
                         clarity I needed to know the steps I should take. Previously, I felt lost, unsure
