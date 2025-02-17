@@ -29,7 +29,7 @@ createRoot(document.getElementById('root')!).render(
           <Route path='/products/new' element={<InputProduct />} />
           <Route path="/products/edit/:id" element={<EditProduct />} />
           <Route path="/products/:id" element={<Product />} />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout/:id" element={<Checkout />} />
           <Route path="/about" element={<About />} />
           <Route path="/my-account" element={<MyAccount />}>
             <Route path="" element={<Purchases />} /> 
