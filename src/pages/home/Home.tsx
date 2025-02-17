@@ -26,7 +26,7 @@ function Home() {
                             <h1 className="text-xl sm:text-2xl">Seruni</h1>
                             <h1 className="text-xl sm:text-2xl"><em>Sekarpuri</em></h1>
                             <p className="font-medium text-sm sm:text-base">A mother and Kinesiologist</p>
-                            <img className="mt-2 w-32 sm:w-40" src="/assets/images/image2.png" alt="Profile" />
+                            <img className="mt-2 w-60" src="/assets/images/image2.png" alt="Profile" />
                             <br />
                             <p className="text-xs sm:text-sm">
                                 As a mother and kinesiologist based in Bali, I’m also a Transformational Alchemist,
@@ -52,10 +52,10 @@ function Home() {
                         </div>
                         <div className="flex justify-end h-full px-4 sm:px-10">
                             <div className="flex items-end">
-                                <img src="/assets/images/image4.png" className="w-24 sm:w-32 md:w-40" alt="Yoga" />
+                                <img src="/assets/images/image4.png" className="w-16 md:w-32" alt="Yoga" />
                             </div>
                             <div className="w-4/5 bg-custom-blue-2 relative">
-                                <img src="/assets/images/image3.png" className="absolute bottom-2 right-2 w-20 sm:w-24 md:w-32" alt="Decoration" />
+                                <img src="/assets/images/image3.png" className="absolute bottom-2 right-2 w-32 md:w-48" alt="Decoration" />
                             </div>
                         </div>
                 </div>

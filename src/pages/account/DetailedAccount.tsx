@@ -9,7 +9,7 @@ function DetailedAccount() {
         <>
             {
                 (payload) ? (
-                    <div className="min-h-32 min-h-1/5 max-h-fit m-10 p-6 rounded-lg">
+                    <div className="min-h-32 min-h-1/5 max-h-fit m-4 md:m-10 md:p-6 rounded-lg">
                         <form>
                             <label className="form-label">Username</label>
                             <input
@@ -48,7 +48,7 @@ function DetailedAccount() {
                         </div>
                         <div className="p-2">
                         <NavLink to="/login" end>
-                            <button className="border bg-custom-orange-3 text-white font-medium p-2 transition-colors hover:from-custom-orange-3 hover:to-custom-orange min-w-36 rounded-md">
+                            <button className="border bg-custom-orange-3 text-white font-medium p-2 transition-colors hover:from-custom-orange-3 hover:to-custom-orange text-sm md:text-lg md:min-w-36 rounded-md">
                                 Log in
                             </button>
                         </NavLink>

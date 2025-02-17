@@ -8,9 +8,9 @@ function Purchases() {
             No purchases yet
           </p>
         </div>
-        <div className="p-2">
+        <div className="p-1 md:p-2">
           <NavLink to="/store" end>
-            <button className="border bg-custom-orange-3 text-white font-medium p-2 transition-colors hover:from-custom-orange-3 hover:to-custom-orange min-w-36 rounded-md">
+            <button className="border bg-custom-orange-3 text-white font-medium p-1 transition-colors hover:from-custom-orange-3 hover:to-custom-orange text-xs md:text-lg md:min-w-36 rounded-md">
               Browse Product
             </button>
           </NavLink>

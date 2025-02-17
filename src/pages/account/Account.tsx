@@ -1,5 +1,4 @@
 import { NavLink, Outlet } from "react-router";
-import Title from "@components/shared/Title";
 import { Nav } from "@components/shared/Nav";
 import { getToken, decodeToken } from "@utils/auth/token";
 
@@ -12,9 +11,8 @@ function MyAccount() {
       <>
             <Nav />
             <div className="pt-20">
-                <Title title="My Account" />
                 <div className="account-generic-container">
-                  <div className="w-3/4 min-h-32 min-h-1/5 max-h-fit border m-10 rounded-lg overflow-auto">
+                  <div className="w-full md:w-3/4 md:min-h-1/5 max-h-fit border mx-2 mt-10 md:m-10 rounded-lg overflow-auto">
                     <div className="border-b-2 sticky top-0 bg-white oppacity-100">
                       <ul className="flex flex-row justify-around py-3">
                         <li>

@@ -1,5 +1,4 @@
 import { Link } from "react-router";
-import Title from "@components/shared/Title";
 import { Nav } from "@components/shared/Nav";
 import { getToken } from "@utils/auth/token";
 import useDisplayItem from "@utils/display/useDisplayItem";
@@ -12,13 +11,12 @@ function Product() {
       <>
         <Nav />
         <div className="pt-20">
-          <Title title='Store' />
           <div className="product-generic-container">
-            <div className="w-1/2">
-              <img src={data.image} alt="Product Image" className="item-img py-16 pl-16 pr-8"></img>
+            <div className="">
+              <img src={data.image} alt="Product Image" className="item-img md:py-16 md:pl-16 lg:pr-8"></img>
             </div>
-            <div className="w-1/2 py-16 pr-16 pl-8">
-              <h2>{data.name}</h2>
+            <div className="md:py-16 md:pr-16 lg:pl-8">
+              <h2 className="text-xl md:text-3xl">{data.name}</h2>
               <br/>
               <h3>{`Rp ${data.price.toLocaleString("id-ID")}`}</h3>
               <br/>
