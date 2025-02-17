@@ -2,19 +2,27 @@ import { Link, useParams } from "react-router";
 import { Nav } from "@components/shared/Nav";
 import { getToken } from "@utils/auth/token";
 import useDisplayItem from "@utils/display/useDisplayItem";
+import { useAspectClass } from "@utils/image/useAspectClass";
 
 function Product() {
     const { id } = useParams();
     const data = useDisplayItem(id);
     const token = getToken("token");
+    const {
+      aspectClass,
+      setAspectClass,
+      handleImageLoad,
+  } = useAspectClass();
 
     return (
       <>
         <Nav />
         <div className="pt-20">
           <div className="product-generic-container">
-            <div className="">
-              <img src={data.image} alt="Product Image" className="item-img md:py-16 md:pl-16 lg:pr-8"></img>
+            <div className="item-container-2 my-6 md:my-16">
+              <div className="flex items-center justify-center item-image-container-2 md:item-img-container-2 overflow-hidden bg-gray-200">
+                <img src={data.image} onLoad={(event) =>  handleImageLoad(event, setAspectClass)} alt="Product Image" className={`item-img ${aspectClass} md:py-16`}></img>
+              </div>
             </div>
             <div className="md:py-16 md:pr-16 lg:pl-8">
               <h2 className="text-xl md:text-3xl">{data.name}</h2>
