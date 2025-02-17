@@ -60,7 +60,7 @@ export function Nav() {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/store" className={navLinkClass} end>
+                    <NavLink to="/products" className={navLinkClass} end>
                     Store
                     </NavLink>
                 </li>
@@ -104,7 +104,7 @@ export function Nav() {
                 <ul className="flex flex-col items-center space-y-4 p-4">
                   <li><NavLink to="/" className={navLinkClass} end onClick={toggleMenu}>Home</NavLink></li>
                   <li><NavLink to="/about" className={navLinkClass} end onClick={toggleMenu}>About</NavLink></li>
-                  <li><NavLink to="/store" className={navLinkClass} end onClick={toggleMenu}>Store</NavLink></li>
+                  <li><NavLink to="/products" className={navLinkClass} end onClick={toggleMenu}>Store</NavLink></li>
                   <li><NavLink to="/my-account" className={navLinkClass} end onClick={toggleMenu}>My Account</NavLink></li>
                   {
                     token ? (

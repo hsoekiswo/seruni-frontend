@@ -1,9 +1,11 @@
+import { useParams } from "react-router";
 import { BackNav } from "@components/shared/Nav";
 import { getToken, decodeToken } from "@utils/auth/token";
 import useDisplayItem from "@utils/display/useDisplayItem";
 
 function Checkout() {
-    const data = useDisplayItem();
+    const { id } = useParams();
+    const data = useDisplayItem(id);
     const token = getToken('token');
     const payload = decodeToken(token);
 
